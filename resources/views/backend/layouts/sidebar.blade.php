@@ -18,7 +18,6 @@
                 <a href="#" class="d-block">{{ auth::user()->name }}</a>
             </div>
         </div>
-
         <!-- SidebarSearch Form -->
         <!-- Sidebar Menu -->
         <nav class="mt-2">
@@ -33,6 +32,20 @@
                         </p>
                     </a>
                 </li>
+
+                {{-- الاقسام --}}
+
+                <li class="nav-item">
+                    <a href="" class="nav-link">
+                        <i class="nav-icon fas fa-copy"></i>
+                        <p>
+                            الاقسام
+                        </p>
+                    </a>
+                </li>
+                {{-- الاقسام --}}
+
+
                 {{-- المقالات --}}
                 <li class="nav-item">
                     <a href="#" class="nav-link">
@@ -45,25 +58,25 @@
                     </a>
                     <ul class="nav nav-treeview">
                         <li class="nav-item">
-                            <a href="{{ route('software') }}" class="nav-link">
+                            <a href="" class="nav-link">
                                 <i class="far fa-circle nav-icon"></i>
                                 <p>البرمجيات</p>
                             </a>
                         </li>
                         <li class="nav-item">
-                            <a href="pages/layout/top-nav-sidebar.html" class="nav-link">
+                            <a href="" class="nav-link">
                                 <i class="far fa-circle nav-icon"></i>
                                 <p>شبكات</p>
                             </a>
                         </li>
                         <li class="nav-item">
-                            <a href="pages/layout/boxed.html" class="nav-link">
+                            <a href="" class="nav-link">
                                 <i class="far fa-circle nav-icon"></i>
                                 <p>تيكنولوجيا</p>
                             </a>
                         </li>
                         <li class="nav-item">
-                            <a href="pages/layout/fixed-sidebar.html" class="nav-link">
+                            <a href="" class="nav-link">
                                 <i class="far fa-circle nav-icon"></i>
                                 <p>مقالات متنوعة</p>
                             </a>
@@ -108,7 +121,7 @@
                     </ul>
                 </li>
                 <li class="nav-item">
-                    <a href="pages/kanban.html" class="nav-link">
+                    <a href="" class="nav-link">
                         <i class="nav-icon fas fa-columns"></i>
                         <p>
                             معلوماتي الشخصية
@@ -116,7 +129,7 @@
                     </a>
                 </li>
                 <li class="nav-item">
-                    <a href="pages/kanban.html" class="nav-link">
+                    <a href="" class="nav-link">
                         <i class="nav-icon fas fa-columns"></i>
                         <p>
                             الصندوق الوارد
@@ -124,7 +137,7 @@
                     </a>
                 </li>
                 <li class="nav-item">
-                    <a href="pages/kanban.html" class="nav-link">
+                    <a href="" class="nav-link">
                         <i class="nav-icon fas fa-columns"></i>
                         <p>
                             الاعدادات
