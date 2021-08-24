@@ -18,21 +18,19 @@ Route::get('/software', function () {
 // المصادقة
 Auth::routes();
 
-//اولا مجلد الاقسام
-Route::group(['prefix' =>'Sections', 'middleware' =>'auth'], function(){
-    //عرض صفحة الاقسام
-	Route::get('show', [SectionsController::class,'index'])->name('show_Sections');
-    // عرض صفحة اضافة الاقسام
-    Route::get('add' , [SectionsController::class,'create'])->name('add_Sections');
-    //اضافة الاقسام
-    Route::post('store' , [SectionsController::class,'store'])->name('store_Sections');
-    // عرض صفحة تعديل القسم
-    Route::get('{id}/edit' , [SectionsController::class,'edit'])->name('edit_Sections');
-    // تعديل بيانات القسام
-    Route::post('update/{id}' , [SectionsController::class,'update'])->name('update_Sections');
-    // حذف قسم من الاقسام
-    Route::get('delete/{id}' , [SectionsController::class,'destroy'])->name('delete_Sections');
-});
-
-
 Route::get('/ahmad', [HomeController::class, 'home'])->name('ahmad');
+//########################################################################################
+//اولا مجلد الاقسام
+//عرض صفحة الاقسام
+Route::get('index', [SectionsController::class,'index'])->name('Sections.index');
+// عرض صفحة اضافة الاقسام
+Route::get('create' , [SectionsController::class,'create'])->name('Sections.create');
+//اضافة الاقسام
+Route::post('store' , [SectionsController::class,'store'])->name('Sections.store');
+// عرض صفحة تعديل القسم
+Route::get('edit/{id}' , [SectionsController::class,'edit'])->name('Sections.edit');
+// تعديل بيانات القسام
+Route::post('update/{id}' , [SectionsController::class,'update'])->name('Sections.update');
+// حذف قسم من الاقسام
+Route::get('delete/{id}' , [SectionsController::class,'destroy'])->name('Sections.delete');
+//########################################################################################
