@@ -1,5 +1,5 @@
 @extends('backend.layouts.master')
-@section('title', 'صفحة الاقسام ')
+@section('title', 'صفحة المقالات ')
 @section('css')
 @section('content')
     <div class="content-wrapper p-3 mt-5">
@@ -7,64 +7,79 @@
         <section class="content-header">
             <div class="container-fluid">
                 <div class="row mb-2">
-                    <div class="col-sm-6">
-                        <h1 class="m-2">صفحة الاقسام</h1>
+                    <div class="col-sm-6 mt-2">
+                        <h1>صفحة المقالات</h1>
                     </div>
-                    <div class="col-sm-6">
-                        <ol class="breadcrumb float-sm-right m-2">
+                    <div class="col-sm-6 mt-2">
+                        <ol class="breadcrumb float-sm-right">
                             <li class="breadcrumb-item"><a href="#">الرئيسية</a></li>
-                            <li class="breadcrumb-item active">صفحة الاقسام</li>
+                            <li class="breadcrumb-item active">صفحة المقالات</li>
                         </ol>
                     </div>
                 </div>
             </div><!-- /.container-fluid -->
-{{-- ********************************************************************** --}}
+        </section>
+
+        <!-- Main content -->
+        <section class="content">
             <div class="container-fluid">
                 <div class="row">
                     <div class="col-12">
                         <div class="card">
-                            <div class="card-header text-center">
-                                <h3 class="card-title ">جدول لعرض جميع الاقسام </h3>
+                            <div class="card-header">
+                                <h3 class="card-title">جدول لعرض جميع المقالات</h3>
                             </div>
                             <div class='row w-100'>
                                 <div class="col-lg-12 d-flex justify-content-end mr-5 mt-3">
-                                    <a href="{{ route('Sections.create') }}" class="btn btn-outline-primary">اضافة قسم
+                                    <a href="{{ route('Articles.create') }}" class="btn btn-outline-primary">اضافة مقال
                                         جديد</a>
                                 </div>
                                 <div class="col-lg-12 d-flex justify-content-center mr-5 mt-3" style="position: absolute;">
-                                    @include('backend.views.Sections.alert')
+                                    @include('backend.views.Articles.alert')
                                 </div>
                             </div>
                             <!-- /.card-header -->
-                            <div class="card-body">
+                            <div class="card-body col-lg-12">
                                 <table id="example1" class="table table-bordered table-striped">
-                                    <thead>
+
+                                    <thead class="">
                                         <tr class="text-center">
-                                            <th>رقم القسم</th>
-                                            <th>عنوان القسم</th>
-                                            <th>وصف القسم</th>
-                                            <th>تاريخ انشاء القسم</th>
-                                            <th>تاريخ اخر تعديل القسم</th>
+                                            <th>رقم المقال</th>
+                                            <th>عنوان المقال</th>
+                                            <th>نوع المقال</th>
+                                            <th>وصف المقال</th>
+                                            <th>تاريخ كتابة المقال </th>
+                                            <th class="img-fluid">صورة المقال</th>
                                             <th>العمليات</th>
                                         </tr>
                                     </thead>
+
                                     <tbody>
-                                        @foreach ($Sections as $Section)
+
+                                        {{-- $page->notes as $note --}}
+                                        @foreach ($articles as $article)
                                             <tr class="text-center">
-                                                <td>{{ $Section->id }}</td>
-                                                <td>{{ $Section->title }} </td>
-                                                <td>{{ $Section->description }}</td>
-                                                <td>{{ $Section->created_at }}</td>
-                                                <td>{{ $Section->updated_at }}</td>
+                                                <th>{{ $article->id }}</th>
+                                                <th>{{ $article->title }}</th>
+                                                <th>{{ $article->title }}</th>
+                                                <th>{{ $article->description }}</th>
+                                                <th>{{ $article->created_at }}</th>
+                                                <th class="img-fluid">{{ $article->photo }}</th>
                                                 <td class="d-flex justify-content-center">
-                                                    <a href="{{ route('Sections.edit', $Section->id) }}"
+
+                                                    <a href="{{ route('Articles.show', $article->id) }}"
+                                                        class="btn btn-success btn-sm mx-2">عرض</a>
+
+                                                    <a href="{{ route('Articles.edit', $article->id) }}"
                                                         class="btn btn-primary btn-sm mx-2">تعديل</a>
-                                                    <a href="{{ route('Sections.delete', $Section->id) }}"
+
+                                                    <a href="{{ route('Articles.delete', $article->id) }}"
                                                         class="btn btn-danger btn-sm mx-2">حذف</a>
                                                 </td>
                                             </tr>
                                         @endforeach
                                     </tbody>
+
                                 </table>
                             </div>
                             <!-- /.card-body -->
