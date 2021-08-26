@@ -20,7 +20,7 @@ class CreateArticlesTable extends Migration
             $table->string('title');
             $table->string('description');
             $table->longText('article');
-            $table->string('photo')->nullable();
+            $table->integer('photo')->nullable();
             $table->timestamps();
         });
     }

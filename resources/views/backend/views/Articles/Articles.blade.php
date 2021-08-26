@@ -25,7 +25,7 @@
             <div class="container-fluid">
                 <div class="row">
                     <div class="col-12">
-                        <div class="card">
+                        {{-- <div class="card"> --}}
                             <div class="card-header">
                                 <h3 class="card-title">جدول لعرض جميع المقالات</h3>
                             </div>
@@ -40,7 +40,7 @@
                             </div>
                             <!-- /.card-header -->
                             <div class="card-body col-lg-12">
-                                <table id="example1" class="table table-bordered table-striped">
+                                <table id="example1" class="table  table-responsive-sm table-responsive-md table-responsive-lg w-100">
 
                                     <thead class="">
                                         <tr class="text-center">
@@ -61,7 +61,7 @@
                                             <tr class="text-center">
                                                 <th>{{ $article->id }}</th>
                                                 <th>{{ $article->title }}</th>
-                                                <th>{{ $article->title }}</th>
+                                                <th>{{ $article->section->title }}</th>
                                                 <th>{{ $article->description }}</th>
                                                 <th>{{ $article->created_at }}</th>
                                                 <th class="img-fluid">{{ $article->photo }}</th>
@@ -83,7 +83,7 @@
                                 </table>
                             </div>
                             <!-- /.card-body -->
-                        </div>
+                        {{-- </div> --}}
                         <!-- /.card -->
                     </div>
                     <!-- /.col -->
@@ -94,5 +94,5 @@
         </section>
         <!-- /.content -->
     </div>
-
+    <script src="{{ asset('js/app.js') }}" ></script>
 @endsection

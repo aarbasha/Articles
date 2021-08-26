@@ -33,7 +33,7 @@
                     </a>
                 </li>
 
-                {{-- الاقسام --}}
+                {{-- sectins --}}
 
                 <li class="nav-item">
                     <a href="{{ route('Sections.index') }}" class="nav-link">
@@ -43,10 +43,10 @@
                         </p>
                     </a>
                 </li>
-                {{-- الاقسام --}}
+                {{-- sectins --}}
 
 
-                {{-- المقالات --}}
+                {{-- Articals --}}
 
                 <li class="nav-item">
                     <a href="{{ route('Articles.index') }}" class="nav-link">
@@ -56,18 +56,22 @@
                         </p>
                     </a>
                 </li>
+
+                {{-- Articals --}}
+
+                {{-- viewd Articals --}}
                 <li class="nav-item">
-                    <a href="#" class="nav-link">
+                    <a href="" class="nav-link">
                         <i class="nav-icon fas fa-copy"></i>
                         <p>
-                            المقالات
+                            عرض المقالات
                             <i class="fas fa-angle-left right"></i>
 
                         </p>
                     </a>
                     <ul class="nav nav-treeview">
                         <li class="nav-item">
-                            <a href="" class="nav-link">
+                            <a href="{{ route('Articles.grid') }}" class="nav-link">
                                 <i class="far fa-circle nav-icon"></i>
                                 <p>جميع المقالات</p>
                             </a>
@@ -98,7 +102,7 @@
                         </li>
                     </ul>
                 </li>
-                {{-- المقالات --}}
+                {{-- viewd Articals --}}
 
                 <li class="nav-item">
                     <a href="#" class="nav-link">
@@ -119,18 +123,6 @@
                             <a href="pages/charts/flot.html" class="nav-link">
                                 <i class="far fa-circle nav-icon"></i>
                                 <p>يوديمي</p>
-                            </a>
-                        </li>
-                        <li class="nav-item">
-                            <a href="pages/charts/inline.html" class="nav-link">
-                                <i class="far fa-circle nav-icon"></i>
-                                <p>كورسيرا</p>
-                            </a>
-                        </li>
-                        <li class="nav-item">
-                            <a href="pages/charts/uplot.html" class="nav-link">
-                                <i class="far fa-circle nav-icon"></i>
-                                <p>منصات اخرى </p>
                             </a>
                         </li>
                     </ul>

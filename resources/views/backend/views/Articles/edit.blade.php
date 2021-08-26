@@ -29,20 +29,20 @@
 @endsection
 @section('content')
 
-    <div class="wrapper">
+    <div class="wrapper mt-5 p-2">
         <!-- Content Wrapper. Contains page content -->
-        <div class="content-wrapper">
+        <div class="content-wrapper mt-5">
             <!-- Content Header (Page header) -->
             <section class="content-header">
                 <div class="container-fluid">
                     <div class="row mb-2">
                         <div class="col-sm-6">
-                            <h1>Advanced Form</h1>
+                            <h1>تعديل قسم</h1>
                         </div>
                         <div class="col-sm-6">
                             <ol class="breadcrumb float-sm-right">
-                                <li class="breadcrumb-item"><a href="#">Home</a></li>
-                                <li class="breadcrumb-item active">Advanced Form</li>
+                                <li class="breadcrumb-item"><a href="#">الرئيسية</a></li>
+                                <li class="breadcrumb-item active">تعديل قسم </li>
                             </ol>
                         </div>
                     </div>
@@ -86,16 +86,23 @@
                                                             <input type="text" name="description" class="form-control"
                                                                 id="description" value="{{ $articles->description }}">
                                                         </div>
+
                                                         <div class="form-group">
                                                             <label>نوع المقال </label>
                                                             <select name="sections_id" class="form-control"
                                                                 style="width: 100%;"
                                                                 value="{{ $articles->sections_id }}">
+                                                                <option value="" selected>  اختر القــسم   </option>
                                                                 @foreach ($Sections as $Section)
                                                                     <option value="{{ $Section->id }}">
                                                                         {{ $Section->title }} </option>
                                                                 @endforeach
                                                             </select>
+                                                        </div>
+                                                        <div class="form-group">
+                                                            <label>نوع المقال </label>
+                                                            <input type="text" disabled class="form-control"
+                                                                 value="{{ $articles->section->title }}">
                                                         </div>
                                                         <!-- /.form-group -->
 

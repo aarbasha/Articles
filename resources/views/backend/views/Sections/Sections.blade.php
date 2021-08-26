@@ -37,7 +37,7 @@
                             </div>
                             <!-- /.card-header -->
                             <div class="card-body">
-                                <table id="example1" class="table table-bordered table-striped">
+                                <table id="example1" class="table  table-responsive-sm table-responsive-md table-responsive-lg w-100">
                                     <thead>
                                         <tr class="text-center">
                                             <th>رقم القسم</th>
@@ -79,5 +79,6 @@
         </section>
         <!-- /.content -->
     </div>
-
+    <script src="{{ asset('js/app.js') }}" ></script>
 @endsection
+

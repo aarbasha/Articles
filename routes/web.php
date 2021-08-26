@@ -37,20 +37,39 @@ Route::group(['prefix'=>'Sections','middleware'=>'auth'],function () {
 });
 
 Route::group(['prefix'=>'Articles','middleware'=>'auth'],function () {
-
-     //عرض صفحة الاقسام
+     //عرض صفحة المقالات
      Route::get('/', [ArticlesController::class,'index'])->name('Articles.index');
-     // عرض صفحة اضافة الاقسام
+     // عرض صفحة اضافة المقال
      Route::get('create' , [ArticlesController::class,'create'])->name('Articles.create');
-     //اضافة الاقسام
+     //اضافة المقال
      Route::post('store' , [ArticlesController::class,'store'])->name('Articles.store');
-     // عرض صفحة تعديل القسم
+     // عرض صفحة تعديل المقال
      Route::get('edit/{id}' , [ArticlesController::class,'edit'])->name('Articles.edit');
-     // تعديل بيانات القسام
+     // تعديل بيانات المقال
      Route::post('update/{id}' , [ArticlesController::class,'update'])->name('Articles.update');
-     // حذف قسم من الاقسام
+     // حذف مقال
      Route::get('delete/{id}' , [ArticlesController::class,'destroy'])->name('Articles.delete');
      //عرض المقال الواحد
      Route::get('show/{id}' , [ArticlesController::class,'show'])->name('Articles.show');
+     // عرض شبكي لجميع المقالات بدون تفاصيل
+     Route::get('grid' , [ArticlesController::class,'grid'])->name('Articles.grid');
+
+});
+
+Route::group(['prefix'=>'Courses','middleware'=>'auth'],function () {
+    //عرض صفحة الكورسات
+    Route::get('/', [CoursesController::class,'index'])->name('Courses.index');
+    // عرض صفحة اضافة كورس
+    Route::get('create' , [CoursesController::class,'create'])->name('Courses.create');
+    //اضافة الكورس
+    Route::post('store' , [CoursesController::class,'store'])->name('Courses.store');
+    // عرض صفحة تعديل الكورس
+    Route::get('edit/{id}' , [CoursesController::class,'edit'])->name('Courses.edit');
+    // تعديل بيانات الكورس
+    Route::post('update/{id}' , [CoursesController::class,'update'])->name('Courses.update');
+    //  كورس من
+    Route::get('delete/{id}' , [CoursesController::class,'destroy'])->name('Courses.delete');
+    //عرض الكورس
+    Route::get('show/{id}' , [CoursesController::class,'show'])->name('Courses.show');
 
 });

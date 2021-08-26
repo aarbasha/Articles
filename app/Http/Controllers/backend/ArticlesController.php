@@ -13,7 +13,7 @@ class ArticlesController extends Controller
     public function index()
     {
         $articles = Article::all();
-        $Sections = Section::all();
+        $Sections = Section::select('title');
         return view('backend.views.Articles.Articles',compact('articles','Sections'));
     }
 
@@ -31,18 +31,23 @@ class ArticlesController extends Controller
         $request->validate([
             'title'=>'min:3|max:90',
             'description'=>'min:5',
-            'article'=>'required'
+            'article'=>'required',
+            "photo" => "image|mimes:jpg,jpeg,gif,png|max:2048",
         ]);
+
+        // $img_name = time() . "." . $request->photo->getClientOriginalExtension();
 
         $articles = new article;
         $articles->title = $request->title;
         $articles->description = $request->description;
         $articles->sections_id = $request->sections_id;
         $articles->article = $request->article;
+        // $articles->photo = $img_name;
         $articles->Save();
         session()->flash('Add' , 'تم اضافة المقال بنجاح');
         return redirect()->route('Articles.index');
 
+        // $request->photo->move(public_path("uplode"), $img_name);
     }
 
 
@@ -82,13 +87,19 @@ class ArticlesController extends Controller
         return redirect()->route('Articles.index');
     }
 
-
     public function destroy($id)
     {
         $articles = Article::where('id' , $id)->first();
         $articles->delete();
         session()->flash('Add' , 'تم حذف المقال بنجاح');
-        return redirect()->route('Articles.index');
+        return back();
 
     }
+
+    public function grid(){
+        $articles = Article::all();
+        $Sections = Section::all();
+        return view('backend.views.Articles.grid',compact('articles','Sections'));
+    }
+
 }

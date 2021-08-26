@@ -29,7 +29,7 @@
 @endsection
 @section('content')
 
-    <div class="wrapper">
+    <div class="wrapper mt-5 p-2">
         <!-- Content Wrapper. Contains page content -->
         <div class="content-wrapper">
             <!-- Content Header (Page header) -->
@@ -37,12 +37,12 @@
                 <div class="container-fluid">
                     <div class="row mb-2">
                         <div class="col-sm-6">
-                            <h1>Advanced Form</h1>
+                            <h1>انشاء مقال جديد</h1>
                         </div>
                         <div class="col-sm-6">
                             <ol class="breadcrumb float-sm-right">
-                                <li class="breadcrumb-item"><a href="#">Home</a></li>
-                                <li class="breadcrumb-item active">Advanced Form</li>
+                                <li class="breadcrumb-item"><a href="#">الرئيسية</a></li>
+                                <li class="breadcrumb-item active">اضافة مقال</li>
                             </ol>
                         </div>
                     </div>
@@ -58,7 +58,7 @@
                                 <div class="card-header">
                                     <h3 class="card-title">bs-stepper</h3>
                                 </div>
-                                {{-- <div class="card-body p-0"> --}}
+                                <div class="card-body p-0">
                                     <div class="bs-stepper">
 
                                         <div class="bs-stepper-content">
@@ -72,7 +72,7 @@
 
                                                 <!-- /.card-header -->
                                                 <!-- form start -->
-                                                <form action="{{ route('Articles.store') }}" method="POST">
+                                                <form action="{{ route('Articles.store') }}" method="POST" enctype="multipart/form-data">
                                                     @csrf
                                                     <div class="card-body col-lg-12">
                                                         <div class="form-group">
@@ -83,6 +83,11 @@
                                                             <label for="description">وصف المقال</label>
                                                             <input type="text" name="description" class="form-control"
                                                                 id="description">
+                                                        </div>
+                                                        <div class="form-group">
+                                                            <label for="photo">صورة المقال</label>
+                                                            <input type="file" name="photo" class="form-control"
+                                                                id="photo">
                                                         </div>
                                                         <div class="form-group">
                                                             <label>نوع المقال </label>
@@ -150,8 +155,9 @@
                                                             <div class="table table-striped files" id="previews">
                                                                 <div id="template" class="row mt-2">
                                                                     <div class="col-auto">
-                                                                        <span class="preview"><img src="data:," alt=""
-                                                                                data-dz-thumbnail /></span>
+                                                                        <span class="preview">
+                                                                            <img src="data:," alt="" data-dz-thumbnail />
+                                                                        </span>
                                                                     </div>
                                                                     <div class="col d-flex align-items-center">
                                                                         <p class="mb-0">
@@ -198,7 +204,7 @@
                                             </div>
                                         </div>
                                     </div>
-                                {{-- </div> --}}
+                                </div>
                             </div>
                             <!-- /.card -->
                         </div>

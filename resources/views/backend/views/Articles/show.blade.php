@@ -47,7 +47,7 @@
                                     <div class="d-flex justify-content-stert flex-row-reverse m-3">
                                         <h6 class="p-2 mx-2 rounded text-danger d-flex  flex-nowrap">
                                             :اسم القسم <i class="fa fa-circle ml-1" aria-hidden="true"></i> </h6>
-                                        <h6 class="p-2 mx-2 rounded text-primary">{{ $Sections->title }}</h6>
+                                        <h6 class="p-2 mx-2 rounded text-primary">{{ $articles->section->title }}</h6>
                                     </div>
                                     <div class="d-flex justify-content-stert flex-row-reverse m-3">
                                         <h6 class="p-2 mx-2 rounded text-danger d-flex  flex-nowrap">

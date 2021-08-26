@@ -2,7 +2,7 @@
 @section('title', 'اضافة قسم ')
 
 @section('content')
-    <div class="content-wrapper">
+    <div class="content-wrapper mt-5 p-2">
         <!-- Content Header (Page header) -->
         <section class="content-header">
             <div class="container-fluid">
@@ -33,9 +33,9 @@
                             <!-- /.card-header -->
                             <div class="card-body">
                                 <div class="card card-primary">
-                                    <div class="card-header">
-                                        <h3 class="card-title">اضافة قسم حديد</h3>
-                                    </div>
+                                    {{-- <div class="card-header">
+                                        <h3 class="card-title">اضافة قسم جديد</h3>
+                                    </div> --}}
                                     <div class="row">
                                         <div class="col-lg-12 m-2 d-flex justify-content-end ">
                                             <a href="{{ route('Sections.index') }}" class="btn btn-success mr-5"> رجوع الى الخلف </a>

@@ -1,7 +1,7 @@
 @extends('backend.layouts.master')
 @section('title', 'الصفحة الرئيسية')
 @section('content')
-    <div class="content-wrapper">
+    <div class="content-wrapper mt-5 p-2">
         <!-- Content Header (Page header) -->
         <div class="content-header">
             <div class="container-fluid mt-5 ">
@@ -88,7 +88,7 @@
                 </div>
                 <!-- /.row -->
                 <!-- Main row -->
-                <div class="row">
+                {{-- <div class="row">
                     <!-- Left col -->
                     <section class="col-lg-7 connectedSortable">
                         <!-- Custom tabs (Charts with tabs)-->
@@ -305,7 +305,8 @@
                                         <li>
                                             <a href="#">
                                                 <img class="contacts-list-img"
-                                                    src={{ asset('admin/dist/img/user8-128x128.jpg') }} alt="User Avatar">
+                                                    src={{ asset('admin/dist/img/user8-128x128.jpg') }}
+                                                    alt="User Avatar">
 
                                                 <div class="contacts-list-info">
                                                     <span class="contacts-list-name">
@@ -620,10 +621,14 @@
                         <!-- /.card -->
                     </section>
                     <!-- right col -->
-                </div>
+                </div> --}}
                 <!-- /.row (main row) -->
             </div><!-- /.container-fluid -->
         </section>
         <!-- /.content -->
     </div>
+@endsection
+@section('js')
+    <script src="{{ asset('js/app.js') }}" defer></script>
+
 @endsection

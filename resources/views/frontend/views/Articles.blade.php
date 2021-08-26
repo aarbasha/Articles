@@ -1,23 +1,14 @@
-@extends('frontend.layouts.master')
+@extends('frontend.layouts.master2')
 @section('title', 'المقالات')
-@section('css')
-<style>
-    #blog{
-        margin-top: 100px;
-    }
-</style>
-@endsection
 @section('content')
     <!-- ======= Blog Section ======= -->
-
-    <main id="main" class="mt-4">
-
+    <main id="main" class="">
         <!-- ======= Breadcrumbs ======= -->
-        <section class="breadcrumbs m-5">
+        <section class="breadcrumbs">
             <div class="container">
 
                 <ol>
-                    <li><a href="index.html">Home</a></li>
+                    <li><a href="/">Home</a></li>
                     <li>Blog</li>
                 </ol>
                 <h2>Blog</h2>
@@ -306,4 +297,8 @@
 
 
     </main><!-- End #main -->
+@endsection
+@section('js')
+<script src="{{ asset('js/app.js') }}" defer></script>
+
 @endsection
