@@ -30,7 +30,7 @@ class ArticlesController extends Controller
 
         $request->validate([
             'title'=>'min:3|max:90',
-            'description'=>'min:5',
+            'description'=>'min:5|max:30',
             'article'=>'required',
             "photo" => "image|mimes:jpg,jpeg,gif,png|max:2048",
         ]);
@@ -43,10 +43,15 @@ class ArticlesController extends Controller
         $articles->sections_id = $request->sections_id;
         $articles->article = $request->article;
         // $articles->photo = $img_name;
-        $articles->Save();
-        session()->flash('Add' , 'تم اضافة المقال بنجاح');
-        return redirect()->route('Articles.index');
 
+        if (!$request->sections_id) {
+            session()->flash('Error',' حدث خطأ ..يرجى ادخال قسم واحد على الاقل');
+            return redirect()->route('Sections.create');
+        }else{
+            $articles->Save();
+            session()->flash('Add' , 'The article has been successfully added');
+            return redirect()->route('Articles.index');
+        }
         // $request->photo->move(public_path("uplode"), $img_name);
     }
 
@@ -82,16 +87,22 @@ class ArticlesController extends Controller
         $articles->description = $request->description;
         $articles->sections_id = $request->sections_id;
         $articles->article = $request->article;
+        if (!$request->sections_id) {
+            session()->flash('Error',' حدث خطأ ..يرجى ادخال قسم واحد على الاقل');
+            return redirect()->route('Sections.create');
+        }
+        else{
         $articles->Save();
-        session()->flash('Add' , 'تم تعديل المقال بنجاح');
+        session()->flash('Add' , 'The article has been successfully Updated');
         return redirect()->route('Articles.index');
+        }
     }
 
     public function destroy($id)
     {
         $articles = Article::where('id' , $id)->first();
         $articles->delete();
-        session()->flash('Add' , 'تم حذف المقال بنجاح');
+        session()->flash('Add' , 'The article has been successfully Deleted');
         return back();
 
     }

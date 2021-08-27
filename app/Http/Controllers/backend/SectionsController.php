@@ -33,7 +33,7 @@ class SectionsController extends Controller
         $Sections->title = $request->title;
         $Sections->description = $request->description;
         $Sections->save();
-        session()->flash('Add' , 'تم اضافة القسم بنجاح');
+        session()->flash('Add' , 'Section has been added successfully');
         return redirect()->route('Sections.index');
     }
 
@@ -62,7 +62,7 @@ class SectionsController extends Controller
         $Sections->title = $request->title;
         $Sections->description = $request->description;
         $Sections->save();
-        session()->flash('edit' , 'تم تعديل القسم بنجاح');
+        session()->flash('edit' , 'Section has been Updated successfully');
         return redirect()->route('Sections.index');
     }
 
@@ -71,7 +71,7 @@ class SectionsController extends Controller
     {
         $Sections = Section::where('id' , $id);
         $Sections->delete();
-        session()->flash('delete' , 'تم حذف القسم بنجاح');
+        session()->flash('delete' , 'Section has been Deleted successfully');
         return redirect()->route('Sections.index');
     }
 }

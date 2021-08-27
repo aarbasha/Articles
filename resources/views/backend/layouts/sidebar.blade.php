@@ -45,59 +45,46 @@
                 </li>
                 {{-- sectins --}}
 
-
-                {{-- Articals --}}
-
-                <li class="nav-item">
-                    <a href="{{ route('Articles.index') }}" class="nav-link">
-                        <i class="nav-icon fas fa-copy"></i>
-                        <p>
-                            المقالات
-                        </p>
-                    </a>
-                </li>
-
-                {{-- Articals --}}
-
-                {{-- viewd Articals --}}
+                {{--  Articals --}}
                 <li class="nav-item">
                     <a href="" class="nav-link">
                         <i class="nav-icon fas fa-copy"></i>
                         <p>
-                            عرض المقالات
+                            المقالات
                             <i class="fas fa-angle-left right"></i>
-
                         </p>
                     </a>
                     <ul class="nav nav-treeview">
                         <li class="nav-item">
+                            <a href="{{ route('Articles.index') }}" class="nav-link">
+                                <i class="nav-icon fas fa-copy"></i>
+                                <p>
+                                    جدول المقالات
+                                </p>
+                            </a>
+                        </li>
+                        <li class="nav-item">
                             <a href="{{ route('Articles.grid') }}" class="nav-link">
                                 <i class="far fa-circle nav-icon"></i>
-                                <p>جميع المقالات</p>
+                                <p>عرض كل المقالات</p>
                             </a>
                         </li>
                         <li class="nav-item">
                             <a href="" class="nav-link">
                                 <i class="far fa-circle nav-icon"></i>
-                                <p>البرمجيات</p>
+                                <p>Software</p>
                             </a>
                         </li>
                         <li class="nav-item">
                             <a href="" class="nav-link">
                                 <i class="far fa-circle nav-icon"></i>
-                                <p>شبكات</p>
+                                <p>Networking</p>
                             </a>
                         </li>
                         <li class="nav-item">
                             <a href="" class="nav-link">
                                 <i class="far fa-circle nav-icon"></i>
-                                <p>تيكنولوجيا</p>
-                            </a>
-                        </li>
-                        <li class="nav-item">
-                            <a href="" class="nav-link">
-                                <i class="far fa-circle nav-icon"></i>
-                                <p>مقالات متنوعة</p>
+                                <p>Technology</p>
                             </a>
                         </li>
                     </ul>
@@ -108,21 +95,27 @@
                     <a href="#" class="nav-link">
                         <i class="nav-icon fas fa-chart-pie"></i>
                         <p>
-                            كورسات
+                            Courses
                             <i class="right fas fa-angle-left"></i>
                         </p>
                     </a>
                     <ul class="nav nav-treeview">
                         <li class="nav-item">
+                            <a href="{{ route('Courses.index') }}" class="nav-link">
+                                <i class="far fa-circle nav-icon"></i>
+                                <p>Courses</p>
+                            </a>
+                        </li>
+                        <li class="nav-item">
                             <a href="pages/charts/chartjs.html" class="nav-link">
                                 <i class="far fa-circle nav-icon"></i>
-                                <p>يوتيوب</p>
+                                <p>Youtube</p>
                             </a>
                         </li>
                         <li class="nav-item">
                             <a href="pages/charts/flot.html" class="nav-link">
                                 <i class="far fa-circle nav-icon"></i>
-                                <p>يوديمي</p>
+                                <p>Udemy</p>
                             </a>
                         </li>
                     </ul>
@@ -131,7 +124,7 @@
                     <a href="" class="nav-link">
                         <i class="nav-icon fas fa-columns"></i>
                         <p>
-                            معلوماتي الشخصية
+                            Profile Setting
                         </p>
                     </a>
                 </li>
@@ -139,7 +132,7 @@
                     <a href="" class="nav-link">
                         <i class="nav-icon fas fa-columns"></i>
                         <p>
-                            الصندوق الوارد
+                            Mile Box
                         </p>
                     </a>
                 </li>
@@ -147,7 +140,7 @@
                     <a href="" class="nav-link">
                         <i class="nav-icon fas fa-columns"></i>
                         <p>
-                            الاعدادات
+                            Setting Web Site
                         </p>
                     </a>
                 </li>

@@ -1,5 +1,5 @@
 @extends('backend.layouts.master')
-@section('title', 'صفحة الاقسام ')
+@section('title', ' Sections ')
 @section('css')
 @section('content')
     <div class="content-wrapper p-3 mt-5">
@@ -8,12 +8,12 @@
             <div class="container-fluid">
                 <div class="row mb-2">
                     <div class="col-sm-6">
-                        <h1 class="m-2">صفحة الاقسام</h1>
+                        <h1 class="m-2">Sections Page</h1>
                     </div>
                     <div class="col-sm-6">
                         <ol class="breadcrumb float-sm-right m-2">
-                            <li class="breadcrumb-item"><a href="#">الرئيسية</a></li>
-                            <li class="breadcrumb-item active">صفحة الاقسام</li>
+                            <li class="breadcrumb-item"><a href="#">Home</a></li>
+                            <li class="breadcrumb-item active">Sections Page </li>
                         </ol>
                     </div>
                 </div>
@@ -24,12 +24,13 @@
                     <div class="col-12">
                         <div class="card">
                             <div class="card-header text-center">
-                                <h3 class="card-title ">جدول لعرض جميع الاقسام </h3>
+                                <h3 class="card-title ">View All Categories </h3>
                             </div>
                             <div class='row w-100'>
                                 <div class="col-lg-12 d-flex justify-content-end mr-5 mt-3">
-                                    <a href="{{ route('Sections.create') }}" class="btn btn-outline-primary">اضافة قسم
-                                        جديد</a>
+                                    <a href="{{ route('Sections.create') }}" class="btn btn-info mr-2">
+                                        <i class="fa fa-plus p-2" aria-hidden="true"></i> Add New Section
+                                    </a>
                                 </div>
                                 <div class="col-lg-12 d-flex justify-content-center mr-5 mt-3" style="position: absolute;">
                                     @include('backend.views.Sections.alert')
@@ -38,14 +39,13 @@
                             <!-- /.card-header -->
                             <div class="card-body">
                                 <table id="example1" class="table  table-responsive-sm table-responsive-md table-responsive-lg w-100">
-                                    <thead>
+                                    <thead class="bg-dark">
                                         <tr class="text-center">
-                                            <th>رقم القسم</th>
-                                            <th>عنوان القسم</th>
-                                            <th>وصف القسم</th>
-                                            <th>تاريخ انشاء القسم</th>
-                                            <th>تاريخ اخر تعديل القسم</th>
-                                            <th>العمليات</th>
+                                            <th>id</th>
+                                            <th>title</th>
+                                            <th>Description</th>
+                                            <th>Date Created</th>
+                                            <th>Processes</th>
                                         </tr>
                                     </thead>
                                     <tbody>
@@ -55,12 +55,15 @@
                                                 <td>{{ $Section->title }} </td>
                                                 <td>{{ $Section->description }}</td>
                                                 <td>{{ $Section->created_at }}</td>
-                                                <td>{{ $Section->updated_at }}</td>
                                                 <td class="d-flex justify-content-center">
                                                     <a href="{{ route('Sections.edit', $Section->id) }}"
-                                                        class="btn btn-primary btn-sm mx-2">تعديل</a>
+                                                        class="btn btn-primary btn-sm mx-2">
+                                                        Edit <i class="fas fa-edit m-1"></i>
+                                                    </a>
                                                     <a href="{{ route('Sections.delete', $Section->id) }}"
-                                                        class="btn btn-danger btn-sm mx-2">حذف</a>
+                                                        class="btn btn-danger btn-sm mx-2">
+                                                        Delete <i class="fas fa-trash m-1"></i>
+                                                    </a>
                                                 </td>
                                             </tr>
                                         @endforeach

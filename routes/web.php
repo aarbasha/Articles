@@ -4,6 +4,7 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\backend\SectionsController;
 use App\Http\Controllers\backend\ArticlesController;
+use App\Http\Controllers\backend\CoursesController;
 
 
 // عرض صفحة الموقع الرئيسية

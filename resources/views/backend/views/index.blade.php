@@ -1,5 +1,5 @@
 @extends('backend.layouts.master')
-@section('title', 'الصفحة الرئيسية')
+@section('title', 'Admin Dashborde')
 @section('content')
     <div class="content-wrapper mt-5 p-2">
         <!-- Content Header (Page header) -->
