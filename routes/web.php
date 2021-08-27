@@ -5,6 +5,7 @@ use App\Http\Controllers\HomeController;
 use App\Http\Controllers\backend\SectionsController;
 use App\Http\Controllers\backend\ArticlesController;
 use App\Http\Controllers\backend\CoursesController;
+use App\Http\Controllers\backend\PhotosController;
 
 
 // عرض صفحة الموقع الرئيسية
@@ -55,6 +56,8 @@ Route::group(['prefix'=>'Articles','middleware'=>'auth'],function () {
      // عرض شبكي لجميع المقالات بدون تفاصيل
      Route::get('grid' , [ArticlesController::class,'grid'])->name('Articles.grid');
 
+     Route::post('uplode' , [ArticlesController::class,'uplode'])->name('Articles.uplode');
+
 });
 
 Route::group(['prefix'=>'Courses','middleware'=>'auth'],function () {
@@ -72,5 +75,12 @@ Route::group(['prefix'=>'Courses','middleware'=>'auth'],function () {
     Route::get('delete/{id}' , [CoursesController::class,'destroy'])->name('Courses.delete');
     //عرض الكورس
     Route::get('show/{id}' , [CoursesController::class,'show'])->name('Courses.show');
+
+});
+
+Route::group(['prefix'=>'Photos','middleware'=>'auth'],function () {
+    //عرض صفحة الكورسات
+    Route::post('/', [PhotosController::class,'uplode'])->name('Photos.index');
+
 
 });

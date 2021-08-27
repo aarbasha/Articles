@@ -18,9 +18,9 @@ class CreateArticlesTable extends Migration
             $table->bigInteger('sections_id' )->unsigned();
             $table->foreign('sections_id')->references('id')->on('sections')->autoIncrement()->onDelete('cascade');
             $table->string('title');
+            $table->text('photo');
             $table->string('description');
             $table->longText('article');
-            $table->integer('photo')->nullable();
             $table->timestamps();
         });
     }

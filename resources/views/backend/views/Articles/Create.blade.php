@@ -1,18 +1,21 @@
 @extends('backend.layouts.master')
 @section('title', 'Create Articles')
 @section('css')
-    <link rel="stylesheet" href={{ asset("https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700&display=fallback") }}>
+    <link rel="stylesheet"
+        href={{ asset('https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700&display=fallback') }}>
     <!-- Font Awesome -->
-    <link rel="stylesheet" href={{ asset("admin/plugins/fontawesome-free/css/all.min.css") }}>
+    <link rel="stylesheet" href={{ asset('admin/plugins/fontawesome-free/css/all.min.css') }}>
     <!-- Theme style -->
-    <link rel="stylesheet" href={{ asset("admin/dist/css/adminlte.min.css") }}>
+    <link rel="stylesheet" href={{ asset('admin/dist/css/adminlte.min.css') }}>
     <!-- summernote -->
-    <link rel="stylesheet" href={{ asset("admin/plugins/summernote/summernote-bs4.min.css") }}>
+    <link rel="stylesheet" href={{ asset('admin/plugins/summernote/summernote-bs4.min.css') }}>
     <!-- CodeMirror -->
-    <link rel="stylesheet" href={{ asset("admin/plugins/codemirror/codemirror.css") }}>
-    <link rel="stylesheet" href={{ asset("admin/plugins/codemirror/theme/monokai.css") }}>
+    <link rel="stylesheet" href={{ asset('admin/plugins/codemirror/codemirror.css') }}>
+    <link rel="stylesheet" href={{ asset('admin/plugins/codemirror/theme/monokai.css') }}>
     <!-- SimpleMDE -->
-    <link rel="stylesheet" href={{ asset("admin/plugins/simplemde/simplemde.min.css") }}>
+    <link rel="stylesheet" href={{ asset('admin/plugins/simplemde/simplemde.min.css') }}>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/dropzone/5.9.2/dropzone.css">
+
 @endsection
 @section('content')
 
@@ -112,6 +115,13 @@
 
                             </div>
                         </div>
+
+                        <div class="col-lg-12">
+                            <form action="{{ route('Articles.uplode') }}" method="POST" class="dropzone" id="my-dropzone">
+                                @csrf
+                            </form>
+                            <input type="reset" value="Clear Data">
+                        </div>
                     </div>
                 </div>
             </section>
@@ -135,6 +145,9 @@
     <script src={{ asset('admin/plugins/codemirror/mode/htmlmixed/htmlmixed.js') }}></script>
     <!-- AdminLTE for demo purposes -->
     <script src{{ asset('admin/dist/js/demo.js') }}></script>
+    {{-- <script src="{{ asset('js/app.js') }}" defer></script> --}}
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/dropzone/5.9.2/dropzone.js"></script>
+
     <!-- Page specific script -->
     <script>
         $(function() {

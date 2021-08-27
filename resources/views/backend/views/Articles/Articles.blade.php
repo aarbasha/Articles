@@ -65,7 +65,13 @@
                                                 <th>{{ $article->section->title }}</th>
                                                 <th>{{ $article->description }}</th>
                                                 <th>{{ $article->created_at }}</th>
-                                                <th class="img-fluid">{{ $article->photo }}</th>
+                                                <th class="img-fluid">
+                                                    <img class="card-img-top"
+                                                    src="{{ asset('images/articles/' .  $article->photo) }}" alt="Card image cap"
+                                                    class="img-fluid"
+                                                    style="width: 100px;height: 100px">
+                                                </th>
+
                                                 <td class="d-flex justify-content-between">
 
                                                     <a href="{{ route('Articles.show', $article->id) }}"

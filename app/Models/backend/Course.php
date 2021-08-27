@@ -5,6 +5,7 @@ namespace App\Models\backend;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use App\Models\backend\Section;
+use App\Models\backend\Photo;
 
 class Course extends Model
 {
@@ -15,5 +16,9 @@ class Course extends Model
     public function section()
     {
         return $this->belongsTo(Section::class , 'sections_id');
+    }
+
+    public function photo(){
+        return $this->hasMany(Photo::class);
     }
 }

@@ -31,12 +31,12 @@
                 <div class="row w-100">
                     @foreach ($articles as $article)
                         <div class="col-lg-4">
-                            <div class="card bg-dark" style="">
+                            <div class="card bg-dark">
 
                                 <div class="card-header">
                                     {{ $article->created_at }}
                                 </div>
-                                <img class="card-img-top" src="https://dummyimage.com/600x400/000/fff" alt="Card image cap">
+                                <img class="card-img-top" src="{{ asset('images/articles/' .  $article->photo) }}" alt="Card image cap" class="img-fluid"  style="max-height: 350px;min-height: 350px">
 
 
                                 <div class="card-body d-flex flex-column justify-content-around">

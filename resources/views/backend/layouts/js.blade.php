@@ -33,7 +33,8 @@
   <script src={{ asset('admin/dist/js/pages/dashboard.js') }}></script>
 
 
-  <script src="{{ asset('js/app.js') }}"></script>
+  {{-- <script src="{{ asset('js/app.js') }}"></script> --}}
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/dropzone/5.9.2/dropzone.js"></script>
   <script src={{ asset('admin/plugins/bootstrap/js/bootstrap.bundle.min.js') }}></script>
   <script src={{ asset('admin/plugins/datatables/jquery.dataTables.min.js') }}></script>
   <script src={{ asset('admin/plugins/datatables-bs4/js/dataTables.bootstrap4.min.js') }}></script>

@@ -19,7 +19,6 @@ class CreateCoursesTable extends Migration
             $table->foreign('sections_id')->references('id')->on('sections')->autoIncrement()->onDelete('cascade');
             $table->string('title');
             $table->longText('info');
-            $table->integer('photo')->nullable();
             $table->integer('status')->nullable();
             $table->integer('number_videos')->nullable();
             $table->string('url');

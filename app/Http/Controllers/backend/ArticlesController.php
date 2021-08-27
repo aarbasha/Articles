@@ -3,12 +3,16 @@
 namespace App\Http\Controllers\backend;
 
 use App\Http\Controllers\Controller;
+// use App\Traits\articleTraits;
 use Illuminate\Http\Request;
 use App\Models\backend\Section;
 use App\Models\backend\Article;
+use App\Models\backend\Photo;
 
 class ArticlesController extends Controller
 {
+
+    // use articleTraits; //  اسم الفانكشن الخارجية لحفظ الصور بشكل ديناميكي
 
     public function index()
     {
@@ -35,15 +39,17 @@ class ArticlesController extends Controller
             "photo" => "image|mimes:jpg,jpeg,gif,png|max:2048",
         ]);
 
-        // $img_name = time() . "." . $request->photo->getClientOriginalExtension();
+        //******************************************************************* */
+        // طريقة اخرى لحفظ الصورة
+        $file_name =  $this->SavaImagse($request->photo,'images/articles');
+        //******************************************************************* */
 
         $articles = new article;
+        $articles->photo = $file_name; //   => تخزين اسم الصورة في قاعدة البيانات
         $articles->title = $request->title;
         $articles->description = $request->description;
         $articles->sections_id = $request->sections_id;
         $articles->article = $request->article;
-        // $articles->photo = $img_name;
-
         if (!$request->sections_id) {
             session()->flash('Error',' حدث خطأ ..يرجى ادخال قسم واحد على الاقل');
             return redirect()->route('Sections.create');
@@ -52,7 +58,22 @@ class ArticlesController extends Controller
             session()->flash('Add' , 'The article has been successfully added');
             return redirect()->route('Articles.index');
         }
-        // $request->photo->move(public_path("uplode"), $img_name);
+    }
+
+
+    protected function SavaImagse($photo ,$folder){
+    // save photo in storag file in public/images/articles
+    // ###########################################################
+    //جلب لاحقة الصورة
+        $file_ex = $photo->getClientOriginalExtension();
+    //اعادة تسمية الصورة
+        $file_name = time() . "." . $file_ex;
+    // تحديد مسار الصورة
+        $path = $folder;
+    //نقل الصورة
+        $photo->move($path ,$file_name );
+    // ############################################################
+        return $file_name;
     }
 
 
@@ -82,7 +103,10 @@ class ArticlesController extends Controller
             'article'=>'required'
         ]);
 
+        $file_name =  $this->SavaImagse($request->photo,'images/articles');
+
         $articles = Article::where('id',$id)->first();
+        $articles->photo = $file_name;
         $articles->title = $request->title;
         $articles->description = $request->description;
         $articles->sections_id = $request->sections_id;
@@ -111,6 +135,25 @@ class ArticlesController extends Controller
         $articles = Article::all();
         $Sections = Section::all();
         return view('backend.views.Articles.grid',compact('articles','Sections'));
+    }
+
+    //use Dropzine js uplode multe img
+    public function uplode(Request $request){
+        if ($request->hasfile('file')) {
+            $file = $request->file('file');
+            $fileName = time() . '.' . $file->getClientOriginalExtension();
+            $path = $file->storeAs('images/articles/' ,$fileName );
+            if ($path) {
+                    $uplode_photo = Photo::Create([
+                        'path' => $fileName
+                    ]);
+               //insert file to Database
+                return response()->json(['uplode_status' =>'success'],200);
+            }else{
+                //note insert file to Database
+                return response()->json(['uplode_status' =>'failed'],401);
+            }
+        }
     }
 
 }
