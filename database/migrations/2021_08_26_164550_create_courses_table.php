@@ -20,6 +20,7 @@ class CreateCoursesTable extends Migration
             $table->string('title');
             $table->longText('info');
             $table->integer('status')->nullable();
+            $table->string('photo')->nullable();
             $table->integer('number_videos')->nullable();
             $table->string('url');
             $table->timestamps();

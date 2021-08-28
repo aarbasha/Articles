@@ -88,7 +88,7 @@
                                         @endif
                                     </div>
                                 </div>
-<hr>
+                                            <hr>
                                 <table class="table">
                                     <thead class="bg-dark">
                                         <tr>
@@ -142,7 +142,8 @@
 
                             <div class="tab-pane fade" id="custom-content-above-messages" role="tabpanel"
                                 aria-labelledby="custom-content-above-messages-tab">
-                                {{ $Courses->photo }}
+                                <img class="card-img-top img-fluid" src={{ asset('images/courses/' . $Courses->photo) }}
+                                alt="Card image cap">
                             </div>
 
                             {{-- <div class="tab-pane fade" id="custom-content-above-settings" role="tabpanel"

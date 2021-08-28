@@ -72,7 +72,7 @@
                         <li class="nav-item">
                             <a href="" class="nav-link">
                                 <i class="far fa-circle nav-icon"></i>
-                                <p>Software</p>
+                                <p>تصنيف المقالات</p>
                             </a>
                         </li>
                         <li class="nav-item">
@@ -95,7 +95,7 @@
                     <a href="#" class="nav-link">
                         <i class="nav-icon fas fa-chart-pie"></i>
                         <p>
-                            Courses
+                            الكورسات
                             <i class="right fas fa-angle-left"></i>
                         </p>
                     </a>
@@ -103,19 +103,19 @@
                         <li class="nav-item">
                             <a href="{{ route('Courses.index') }}" class="nav-link">
                                 <i class="far fa-circle nav-icon"></i>
-                                <p>Courses</p>
+                                <p>جدول الكورسات</p>
                             </a>
                         </li>
                         <li class="nav-item">
-                            <a href="pages/charts/chartjs.html" class="nav-link">
+                            <a href="{{ route('Courses.grid') }}" class="nav-link">
                                 <i class="far fa-circle nav-icon"></i>
-                                <p>Youtube</p>
+                                <p>كل الكورسات</p>
                             </a>
                         </li>
                         <li class="nav-item">
                             <a href="pages/charts/flot.html" class="nav-link">
                                 <i class="far fa-circle nav-icon"></i>
-                                <p>Udemy</p>
+                                <p>تصنيف الكورسات</p>
                             </a>
                         </li>
                     </ul>

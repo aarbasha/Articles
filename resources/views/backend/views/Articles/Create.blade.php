@@ -14,7 +14,7 @@
     <link rel="stylesheet" href={{ asset('admin/plugins/codemirror/theme/monokai.css') }}>
     <!-- SimpleMDE -->
     <link rel="stylesheet" href={{ asset('admin/plugins/simplemde/simplemde.min.css') }}>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/dropzone/5.9.2/dropzone.css">
+    
 
 @endsection
 @section('content')
@@ -116,12 +116,7 @@
                             </div>
                         </div>
 
-                        <div class="col-lg-12">
-                            <form action="{{ route('Articles.uplode') }}" method="POST" class="dropzone" id="my-dropzone">
-                                @csrf
-                            </form>
-                            <input type="reset" value="Clear Data">
-                        </div>
+
                     </div>
                 </div>
             </section>

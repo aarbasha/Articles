@@ -1,6 +1,5 @@
 @extends('backend.layouts.master')
 @section('title', 'Create Course')
-{{ route('Sections.store') }}
 @section('content')
 
     <div class="wrapper mt-5 p-2">

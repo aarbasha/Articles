@@ -56,7 +56,7 @@ Route::group(['prefix'=>'Articles','middleware'=>'auth'],function () {
      // عرض شبكي لجميع المقالات بدون تفاصيل
      Route::get('grid' , [ArticlesController::class,'grid'])->name('Articles.grid');
 
-     Route::post('uplode' , [ArticlesController::class,'uplode'])->name('Articles.uplode');
+     Route::post('uplode/{id}' , [ArticlesController::class,'uplode'])->name('Articles.uplode');
 
 });
 
@@ -75,6 +75,8 @@ Route::group(['prefix'=>'Courses','middleware'=>'auth'],function () {
     Route::get('delete/{id}' , [CoursesController::class,'destroy'])->name('Courses.delete');
     //عرض الكورس
     Route::get('show/{id}' , [CoursesController::class,'show'])->name('Courses.show');
+    // عرض شبكي لجميع الكورسات  بدون تفاصيل
+    Route::get('grid' , [CoursesController::class,'grid'])->name('Courses.grid');
 
 });
 

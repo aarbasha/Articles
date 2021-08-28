@@ -39,26 +39,40 @@ class ArticlesController extends Controller
             "photo" => "image|mimes:jpg,jpeg,gif,png|max:2048",
         ]);
 
-        //******************************************************************* */
-        // طريقة اخرى لحفظ الصورة
-        $file_name =  $this->SavaImagse($request->photo,'images/articles');
-        //******************************************************************* */
-
         $articles = new article;
-        $articles->photo = $file_name; //   => تخزين اسم الصورة في قاعدة البيانات
-        $articles->title = $request->title;
-        $articles->description = $request->description;
-        $articles->sections_id = $request->sections_id;
-        $articles->article = $request->article;
-        if (!$request->sections_id) {
+        if ($request->photo) {
+            $file_name =  $this->SavaImagse($request->photo,'images/articles');
+            $articles->photo = $file_name; //   => تخزين اسم الصورة في قاعدة البيانات
+            $articles->title = $request->title;
+            $articles->description = $request->description;
+            $articles->sections_id = $request->sections_id;
+             $articles->article = $request->article;
+            if (!$request->sections_id) {
             session()->flash('Error',' حدث خطأ ..يرجى ادخال قسم واحد على الاقل');
             return redirect()->route('Sections.create');
-        }else{
+            }
+            else{
             $articles->Save();
             session()->flash('Add' , 'The article has been successfully added');
             return redirect()->route('Articles.index');
         }
+        }elseif(!$request->photo){
+            $articles->title = $request->title;
+            $articles->description = $request->description;
+            $articles->sections_id = $request->sections_id;
+             $articles->article = $request->article;
+            if (!$request->sections_id) {
+            session()->flash('Error',' حدث خطأ ..يرجى ادخال قسم واحد على الاقل');
+            return redirect()->route('Sections.create');
+            }
+            else{
+            $articles->Save();
+            session()->flash('Add' , 'The article has been successfully added');
+            return redirect()->route('Articles.index');
+        }
+
     }
+}
 
 
     protected function SavaImagse($photo ,$folder){
@@ -103,22 +117,37 @@ class ArticlesController extends Controller
             'article'=>'required'
         ]);
 
-        $file_name =  $this->SavaImagse($request->photo,'images/articles');
-
         $articles = Article::where('id',$id)->first();
-        $articles->photo = $file_name;
-        $articles->title = $request->title;
-        $articles->description = $request->description;
-        $articles->sections_id = $request->sections_id;
-        $articles->article = $request->article;
-        if (!$request->sections_id) {
-            session()->flash('Error',' حدث خطأ ..يرجى ادخال قسم واحد على الاقل');
-            return redirect()->route('Sections.create');
-        }
-        else{
-        $articles->Save();
-        session()->flash('Add' , 'The article has been successfully Updated');
-        return redirect()->route('Articles.index');
+        if (!$request->photo) {
+            $articles->title = $request->title;
+            $articles->description = $request->description;
+            $articles->sections_id = $request->sections_id;
+            $articles->article = $request->article;
+            if (!$request->sections_id) {
+                session()->flash('Error',' حدث خطأ ..يرجى ادخال قسم واحد على الاقل');
+                return redirect()->route('Sections.create');
+            }
+            else{
+            $articles->Save();
+            session()->flash('Add' , 'The article has been successfully Updated');
+            return redirect()->route('Articles.index');
+            }
+        }elseif($request->photo){
+            $file_name =  $this->SavaImagse($request->photo,'images/articles');
+            $articles->photo = $file_name;
+            $articles->title = $request->title;
+            $articles->description = $request->description;
+            $articles->sections_id = $request->sections_id;
+            $articles->article = $request->article;
+            if (!$request->sections_id) {
+                session()->flash('Error',' حدث خطأ ..يرجى ادخال قسم واحد على الاقل');
+                return redirect()->route('Sections.create');
+            }
+            else{
+            $articles->Save();
+            session()->flash('Add' , 'The article has been successfully Updated');
+            return redirect()->route('Articles.index');
+            }
         }
     }
 
@@ -138,14 +167,16 @@ class ArticlesController extends Controller
     }
 
     //use Dropzine js uplode multe img
-    public function uplode(Request $request){
+    public function uplode(Request $request , $id){
         if ($request->hasfile('file')) {
             $file = $request->file('file');
             $fileName = time() . '.' . $file->getClientOriginalExtension();
-            $path = $file->storeAs('images/articles/' ,$fileName );
+            $articles_id = Article::where('id' , $id)->first();
+            $path = $file->move('images/articles/' ,$fileName );
             if ($path) {
-                    $uplode_photo = Photo::Create([
-                        'path' => $fileName
+                    Photo::Create([
+                        'path' => $fileName,
+                        'articles_id' => $articles_id
                     ]);
                //insert file to Database
                 return response()->json(['uplode_status' =>'success'],200);

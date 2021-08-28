@@ -1,8 +1,5 @@
 @extends('backend.layouts.master')
 @section('title', 'Grid Articles')
-@section('css')
-
-@endsection
 @section('content')
     <div class="content-wrapper mt-5 p-2">
         <!-- Content Header (Page header) -->
@@ -65,18 +62,6 @@
                                     </div>
 
                                 </div>
-                                {{-- <div class="card-footer d-flex justify-content-center">
-                                    <div class="item mx-2">
-
-                                    </div>
-                                    <div class="item mx-2">
-
-                                    </div>
-                                    <div class="item mx-2">
-
-                                    </div>
-
-                                </div> --}}
                             </div>
                         </div>
                     @endforeach
