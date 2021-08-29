@@ -1,6 +1,8 @@
 @extends('backend.layouts.master')
 @section('title', ' Articles')
 @section('css')
+<link rel="stylesheet" href="{{ asset('/css/lity.css') }}">
+@endsection
 @section('content')
     <div class="content-wrapper p-3 mt-5">
         <!-- Content Header (Page header) -->
@@ -66,27 +68,31 @@
                                                 <th>{{ $article->description }}</th>
                                                 <th>{{ $article->created_at }}</th>
                                                 <th class="img-fluid">
-                                                    <img class="card-img-top"
-                                                    src="{{ asset('images/articles/' .  $article->photo) }}" alt="Card image cap"
-                                                    class="img-fluid"
-                                                    style="width: 100px;height: 100px">
+                                                    {{-- use lity --}}
+                                                    <a href="{{ asset('images/articles/' .  $article->photo) }}" data-lity>
+                                                        <img class="card-img-top"
+                                                        src="{{ asset('images/articles/' .  $article->photo) }}" alt="Card image cap"
+                                                        {{-- class="img-fluid" --}}
+                                                        style="width: 50px;height: 50px">
+                                                    </a>
+
                                                 </th>
 
                                                 <td class="d-flex justify-content-between">
 
                                                     <a href="{{ route('Articles.show', $article->id) }}"
                                                         class="btn btn-success btn-sm">
-                                                        Show <i class="fas fa-eye m-1"></i>
+                                                         <i class="fas fa-eye m-1"></i>
                                                     </a>
 
                                                     <a href="{{ route('Articles.edit', $article->id) }}"
                                                         class="btn btn-primary btn-sm">
-                                                        Edit <i class="fas fa-edit m-1"></i>
+                                                         <i class="fas fa-edit m-1"></i>
                                                     </a>
 
                                                     <a href="{{ route('Articles.delete', $article->id) }}"
                                                         class="btn btn-danger btn-sm">
-                                                        Delete <i class="fas fa-trash m-1"></i>
+                                                         <i class="fas fa-trash m-1"></i>
                                                     </a>
                                                 </td>
                                             </tr>
@@ -108,4 +114,6 @@
         <!-- /.content -->
     </div>
     <script src="{{ asset('js/app.js') }}" ></script>
+    <script src={{ asset('admin/plugins/jquery/jquery.min.js') }}></script>
+    <script src="{{ asset('js/lity.js') }}"></script>
 @endsection

@@ -13,21 +13,25 @@
                 <li><a class="nav-link scrollto" href="#services">الخدمات</a></li>
                 <li><a class="nav-link scrollto" href="#portfolio">اعمالي</a></li>
                 <li><a class="nav-link scrollto" href="#team">فريقي</a></li>
-                <li class="dropdown"><a href="#"><span>مقالات</span> <i class="bi bi-chevron-down"></i></a>
+                <li><a class="nav-link scrollto" href="{{ route('showArticles') }}">المقالات</a></li>
+                <li><a class="nav-link scrollto" href="{{ route('showCourses') }}">الكورسات التعليمة</a></li>
+
+
+                {{-- <li class="dropdown"><a href="#"><span>مقالات</span> <i class="bi bi-chevron-down"></i></a>
                     <ul>
-                        <li><a href="{{ route('Articles_software') }}">برمجيات</a></li>
+                        <li><a href="">برمجيات</a></li>
                         <li><a href="#">شبكات</a></li>
                         <li><a href="#">تكنولوجيا</a></li>
                     </ul>
-                </li>
-                <li class="dropdown"><a href="#"><span>كورسات</span> <i class="bi bi-chevron-down"></i></a>
+                </li> --}}
+                {{-- <li class="dropdown"><a href="#"><span>كورسات</span> <i class="bi bi-chevron-down"></i></a>
                     <ul>
                         <li><a href="#">يوتيوب</a></li>
                         <li><a href="#">يوديمي</a></li>
                         <li><a href="#">كورسيرا</a></li>
                         <li><a href="#">يوداسيتي</a></li>
                     </ul>
-                </li>
+                </li> --}}
                 <li><a class="nav-link scrollto" href="#contact">تواصل معي</a></li>
                 {{-- <li><a class="getstarted scrollto" href="/ahmad">ahmad</a></li> --}}
                 @guest

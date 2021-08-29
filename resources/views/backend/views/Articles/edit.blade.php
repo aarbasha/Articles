@@ -79,13 +79,13 @@
                                     </a>
                                 </li>
 
-                                {{-- <li class="nav-item text-center" style="width: 150px">
+                                <li class="nav-item text-center" style="width: 250px">
                                     <a class="nav-link" id="custom-content-above-settings-tab" data-toggle="pill"
                                         href="#custom-content-above-settings" role="tab"
                                         aria-controls="custom-content-above-settings" aria-selected="false">
-                                        photos
+                                        photos in Article
                                     </a>
-                                </li> --}}
+                                </li>
 
                             </ul>
 
@@ -176,14 +176,17 @@
                                             class="dropzone" id="my-dropzone">
                                             @csrf
                                         </form>
-                                        <input type="reset" value="Clear Data">
+                                        {{-- <input type="reset" value="Clear Data"> --}}
                                     </div>
                                 </div>
 
-                                {{-- <div class="tab-pane fade" id="custom-content-above-settings" role="tabpanel"
+                                <div class="tab-pane fade" id="custom-content-above-settings" role="tabpanel"
                                     aria-labelledby="custom-content-above-settings-tab">
 
-                                </div> --}}
+                             <img src="{{ asset('/images/articles/' . $articles->photo) }}" alt="" class="img-fluid">
+
+
+                                </div>
 
 
                             </div>

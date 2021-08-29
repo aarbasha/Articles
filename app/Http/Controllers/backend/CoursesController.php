@@ -32,7 +32,14 @@ class CoursesController extends Controller
             'title'=>'min:3|max:90',
             'info'=>'min:5',
             'url'=>'required',
-            "photo" => "image|mimes:jpg,jpeg,gif,png|max:2048",
+            "photo" => "image|mimes:jpg,jpeg,gif,png",
+        ],[
+            // 'title.unique'=>'اسم الكورس موجود مسبقاً',
+            'title.min'=>'يجب الا يقل العنوان عن 3 حروف',
+            'title.max'=>'يجب الا يقل العنوان عن 3 حروف',
+            'info.min'=>'يجب الا يقل العنوان عن 3 حروف',
+            'url.required'=>'الرجاء ادخال رابط الكورس بشكل صحيح',
+            'photo.mimes'=>'صيغة الصورة يجب ان تكون jpg jpeg gif png فقط'
         ]);
 
         $Courses = new Course;

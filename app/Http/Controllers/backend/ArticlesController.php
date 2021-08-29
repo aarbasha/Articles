@@ -166,12 +166,32 @@ class ArticlesController extends Controller
         return view('backend.views.Articles.grid',compact('articles','Sections'));
     }
 
-    //use Dropzine js uplode multe img
+    public function storeMulteImage(Request $request){
+        if ($request->hasfile('file')) {
+            $file = $request->file('file');
+            $fileName = time() . '.' . $file->getClientOriginalExtension();
+            // $articles_id = Article::where('id' , $id)->first()->id;
+            $path = $file->move('images/articles/' ,$fileName );
+            if ($path) {
+                    Photo::Create([
+                        'path' => $fileName,
+                        // 'articles_id' => $articles_id
+                    ]);
+               //insert file to Database
+                return response()->json(['uplode_status' =>'success'],200);
+            }else{
+                //note insert file to Database
+                return response()->json(['uplode_status' =>'failed'],401);
+            }
+        }
+    }
+
+    //use Dropzine js uplode multe img ####### Update ######
     public function uplode(Request $request , $id){
         if ($request->hasfile('file')) {
             $file = $request->file('file');
             $fileName = time() . '.' . $file->getClientOriginalExtension();
-            $articles_id = Article::where('id' , $id)->first();
+            $articles_id = Article::where('id' , $id)->first()->id;
             $path = $file->move('images/articles/' ,$fileName );
             if ($path) {
                     Photo::Create([

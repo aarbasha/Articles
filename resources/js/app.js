@@ -29,4 +29,12 @@ Vue.component('example-component', require('./components/ExampleComponent.vue').
 
 const app = new Vue({
     el: '#app',
+    data:{
+        name : "Anas Arbasha",
+        emial: "anas.arbasha@outlook.com",
+        age:25,
+    },
+    methods: {
+        
+    },
 });

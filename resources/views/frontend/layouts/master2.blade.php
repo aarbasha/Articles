@@ -6,7 +6,6 @@
 </head>
 
 <body>
-
     <!-- ======= Header ======= -->
     <header id="header" class="header fixed-top">
         <div class="container-fluid container-xl d-flex align-items-center justify-content-between">
@@ -18,21 +17,9 @@
 
             <nav id="navbar" class="navbar">
                 <ul>
-                    <li><a class="nav-link scrollto active" href="/">الرئيسية</a></li>
-
-                    <li class="dropdown"><a href="#"><span>مقالات</span> <i class="bi bi-chevron-down"></i></a>
-                        <ul>
-                            <li><a href="{{ route('Articles_software') }}">برمجيات</a></li>
-                            <li><a href="#">شبكات</a></li>
-                            <li><a href="#">تكنولوجيا</a></li>
-                        </ul>
-                    </li>
-                    <li class="dropdown"><a href="#"><span>كورسات</span> <i class="bi bi-chevron-down"></i></a>
-                        <ul>
-                            <li><a href="#">يوتيوب</a></li>
-                            <li><a href="#">يوديمي</a></li>
-                        </ul>
-                    </li>
+                    <li><a class="nav-link scrollto " href="/">الرئيسية</a></li>
+                    <li><a class="nav-link scrollto " href="{{ route('showArticles') }}">مقالات</a></li>
+                    <li><a class="nav-link scrollto " href="{{ route('showCourses') }}">الكورسات التعليمة</a></li>
                     @guest
                         {{-- <li class="nav-item">
                         <a class="nav-link scrollto" href="{{ route('login') }}">{{ __('Login') }}</a>
@@ -62,31 +49,20 @@
                             </div>
                         </li>
                     @endguest
-
-
                 </ul>
                 <i class="bi bi-list mobile-nav-toggle"></i>
             </nav>
 
         </div>
     </header>
-
-
-
-
-
     <!-- .navbar -->
-
     <!-- End Header -->
-
     <!-- ======= Hero Section ======= -->
     @yield('content')
     <!-- End #main -->
-
     <!-- ======= Footer ======= -->
     @include('frontend.layouts.footer')
     <!-- End Footer -->
-
     <a href="#" class="back-to-top d-flex align-items-center justify-content-center">
         <i class="bi bi-arrow-up-short"></i>
     </a>
