@@ -1,6 +1,8 @@
 @extends('backend.layouts.master')
 @section('title', ' Courses')
 @section('css')
+    <link rel="stylesheet" href="{{ asset('/css/lity.css') }}">
+@endsection
 @section('content')
     <div class="content-wrapper p-3 mt-5">
         <!-- Content Header (Page header) -->
@@ -48,9 +50,10 @@
                                     <tr class="text-center">
                                         <th>id</th>
                                         <th>Title</th>
-                                        <th>Section</th>
+                                        <th>Platforms</th>
                                         <th>Status</th>
                                         <th>link</th>
+                                        <th>photo</th>
                                         <th>Number Video</th>
                                         <th>Processes</th>
                                     </tr>
@@ -63,7 +66,7 @@
                                         <tr class="text-center">
                                             <th>{{ $Course->id }}</th>
                                             <th>{{ $Course->title }}</th>
-                                            <th>{{ $Course->section->title }}</th>
+                                            <th>{{ $Course->Platform->title }}</th>
                                             <th>
                                                 @if ($Course->status == 0)
                                                     <span class="text-primary">In Progress
@@ -80,28 +83,46 @@
                                                 @endif
                                             </th>
                                             <th>
-                                                <a href="{{ $Course->url }}" target="_blank">
-                                                    تابع الكورس
+                                                @if ($Course->status == 0)
+                                                    <a href="{{ $Course->url }}" class="btn btn-primary" target="_blank">
+                                                        تابع الكورس
+                                                    </a>
+                                                @elseif ($Course->status == 1)
+                                                    <a href="{{ $Course->url }}" class="btn btn-success"  target="_blank">
+                                                        تابع الكورس
+                                                    </a>
+                                                @elseif($Course->status == 2)
+                                                    <a href="{{ $Course->url }}"class="btn btn-danger" target="_blank">
+                                                        تابع الكورس
+                                                    </a>
+                                                @endif
+
+                                            </th>
+                                            <th>
+                                                <a href="{{ asset('images/courses/' . $Course->photo) }}" data-lity>
+                                                    <img src="{{ asset('images/courses/' . $Course->photo) }}" alt=""
+                                                        style="width: 50px;height:50px" class="img-fluid">
                                                 </a>
+
                                             </th>
                                             <th>
                                                 {{ $Course->number_videos }}
                                             </th>
-                                            <td class="d-flex justify-content-center">
+                                            <td class="d-flex justify-content-around">
 
                                                 <a href="{{ route('Courses.show', $Course->id) }}"
-                                                    class="btn btn-success mx-1 btn-sm">
-                                                    Show <i class="fas fa-eye mx-1"></i>
+                                                    class="btn rounded-circle btn-outline-success mx-1 btn-sm">
+                                                    <i class="fas fa-eye"></i>
                                                 </a>
 
                                                 <a href="{{ route('Courses.edit', $Course->id) }}"
-                                                    class="btn btn-primary mx-1 btn-sm">
-                                                    Edit <i class="fas fa-edit mx-1"></i>
+                                                    class="btn rounded-circle btn-outline-primary mx-1 btn-sm">
+                                                    <i class="fas fa-edit"></i>
                                                 </a>
 
                                                 <a href="{{ route('Courses.delete', $Course->id) }}"
-                                                    class="btn btn-danger mx-1 btn-sm">
-                                                    Delete <i class="fas fa-trash mx-1"></i>
+                                                    class="btn rounded-circle btn-outline-danger mx-1 btn-sm">
+                                                    <i class="fas fa-trash"></i>
                                                 </a>
                                             </td>
                                         </tr>
@@ -122,5 +143,11 @@
         </section>
         <!-- /.content -->
     </div>
-    {{-- <script src="{{ asset('js/app.js') }}"></script> --}}
+
+    <script src="{{ asset('js/app.js') }}" ></script>
+    <script src={{ asset('admin/plugins/jquery/jquery.min.js') }}></script>
+    <script src="{{ asset('js/lity.js') }}"></script>
+@endsection
+@section('js')
+
 @endsection

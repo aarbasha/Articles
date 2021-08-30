@@ -1,5 +1,5 @@
 @extends('backend.layouts.master')
-@section('title', ' Sections ')
+@section('title', ' Platforms ')
 @section('css')
 @section('content')
     <div class="content-wrapper p-3 mt-5">
@@ -8,12 +8,12 @@
             <div class="container-fluid">
                 <div class="row mb-2">
                     <div class="col-sm-6">
-                        <h1 class="m-2">Sections Page</h1>
+                        <h1 class="m-2">Platforms Page</h1>
                     </div>
                     <div class="col-sm-6">
                         <ol class="breadcrumb float-sm-right m-2">
                             <li class="breadcrumb-item"><a href="#">Home</a></li>
-                            <li class="breadcrumb-item active">Sections Page </li>
+                            <li class="breadcrumb-item active">Platforms Page </li>
                         </ol>
                     </div>
                 </div>
@@ -28,12 +28,12 @@
                             </div>
                             <div class='row w-100'>
                                 <div class="col-lg-12 d-flex justify-content-end mr-5 mt-3">
-                                    <a href="{{ route('Sections.create') }}" class="btn btn-info mr-2">
-                                        <i class="fa fa-plus p-2" aria-hidden="true"></i> Add New Section
+                                    <a href="{{ route('Platforms.create') }}" class="btn btn-info mr-2">
+                                        <i class="fa fa-plus p-2" aria-hidden="true"></i> Add New Platforms
                                     </a>
                                 </div>
                                 <div class="col-lg-12 d-flex justify-content-center mr-5 mt-3" style="position: absolute;">
-                                    @include('backend.views.Sections.alert')
+                                    @include('backend.views.Platforms.alert')
                                 </div>
                             </div>
                             <!-- /.card-header -->
@@ -49,20 +49,20 @@
                                         </tr>
                                     </thead>
                                     <tbody>
-                                        @foreach ($Sections as $Section)
+                                        @foreach ($Platforms as $Platform)
                                             <tr class="text-center">
-                                                <td>{{ $Section->id }}</td>
-                                                <td>{{ $Section->title }} </td>
-                                                <td>{{ $Section->description }}</td>
-                                                <td>{{ $Section->created_at }}</td>
-                                                <td class="d-flex justify-content-around">
-                                                    <a href="{{ route('Sections.edit', $Section->id) }}"
-                                                        class="btn rounded-circle btn-outline-primary btn-sm">
-                                                         <i class="fas fa-edit"></i>
+                                                <td>{{ $Platform->id }}</td>
+                                                <td>{{ $Platform->title }} </td>
+                                                <td>{{ $Platform->description }}</td>
+                                                <td>{{ $Platform->created_at }}</td>
+                                                <td class="d-flex justify-content-center">
+                                                    <a href="{{ route('Platforms.edit', $Platform->id) }}"
+                                                        class="btn btn-outline-primary btn-sm mx-2">
+                                                         <i class="fas fa-edit m-1"></i>
                                                     </a>
-                                                    <a href="{{ route('Sections.delete', $Section->id) }}"
-                                                        class="btn rounded-circle btn-outline-danger btn-sm">
-                                                         <i class="fas fa-trash"></i>
+                                                    <a href="{{ route('Platforms.delete', $Platform->id) }}"
+                                                        class="btn btn-outline-danger btn-sm mx-2">
+                                                         <i class="fas fa-trash m-1"></i>
                                                     </a>
                                                 </td>
                                             </tr>

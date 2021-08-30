@@ -32,65 +32,39 @@
                         </p>
                     </a>
                 </li>
-
-                {{-- sectins --}}
-
+                {{-- المقالات --}}
                 <li class="nav-item">
-                    <a href="{{ route('Sections.index') }}" class="nav-link">
-                        <i class="nav-icon fas fa-copy"></i>
-                        <p>
-                            الاقسام
-                        </p>
-                    </a>
-                </li>
-                {{-- sectins --}}
-
-                {{--  Articals --}}
-                <li class="nav-item">
-                    <a href="" class="nav-link">
-                        <i class="nav-icon fas fa-copy"></i>
+                    <a href="#" class="nav-link">
+                        <i class="nav-icon fas fa-chart-pie"></i>
                         <p>
                             المقالات
-                            <i class="fas fa-angle-left right"></i>
+                            <i class="right fas fa-angle-left"></i>
                         </p>
                     </a>
                     <ul class="nav nav-treeview">
                         <li class="nav-item">
+                            <a href="{{ route('Sections.index') }}" class="nav-link">
+                                <i class="far fa-circle nav-icon"></i>
+                                <p>الاقســـام </p>
+                            </a>
+                        </li>
+                        <li class="nav-item">
                             <a href="{{ route('Articles.index') }}" class="nav-link">
-                                <i class="nav-icon fas fa-copy"></i>
-                                <p>
-                                    جدول المقالات
-                                </p>
+                                <i class="far fa-circle nav-icon"></i>
+                                <p>جدول المقالات</p>
                             </a>
                         </li>
                         <li class="nav-item">
                             <a href="{{ route('Articles.grid') }}" class="nav-link">
                                 <i class="far fa-circle nav-icon"></i>
-                                <p>عرض كل المقالات</p>
-                            </a>
-                        </li>
-                        <li class="nav-item">
-                            <a href="" class="nav-link">
-                                <i class="far fa-circle nav-icon"></i>
-                                <p>تصنيف المقالات</p>
-                            </a>
-                        </li>
-                        <li class="nav-item">
-                            <a href="" class="nav-link">
-                                <i class="far fa-circle nav-icon"></i>
-                                <p>Networking</p>
-                            </a>
-                        </li>
-                        <li class="nav-item">
-                            <a href="" class="nav-link">
-                                <i class="far fa-circle nav-icon"></i>
-                                <p>Technology</p>
+                                <p>عرض المقالات</p>
                             </a>
                         </li>
                     </ul>
                 </li>
-                {{-- viewd Articals --}}
+                {{-- نهاية المقالات --}}
 
+                {{-- الكورسات --}}
                 <li class="nav-item">
                     <a href="#" class="nav-link">
                         <i class="nav-icon fas fa-chart-pie"></i>
@@ -101,6 +75,12 @@
                     </a>
                     <ul class="nav nav-treeview">
                         <li class="nav-item">
+                            <a href="{{ route('Platforms.index') }}" class="nav-link">
+                                <i class="far fa-circle nav-icon"></i>
+                                <p>المنصات التعليمية</p>
+                            </a>
+                        </li>
+                        <li class="nav-item">
                             <a href="{{ route('Courses.index') }}" class="nav-link">
                                 <i class="far fa-circle nav-icon"></i>
                                 <p>جدول الكورسات</p>
@@ -109,22 +89,28 @@
                         <li class="nav-item">
                             <a href="{{ route('Courses.grid') }}" class="nav-link">
                                 <i class="far fa-circle nav-icon"></i>
-                                <p>كل الكورسات</p>
-                            </a>
-                        </li>
-                        <li class="nav-item">
-                            <a href="pages/charts/flot.html" class="nav-link">
-                                <i class="far fa-circle nav-icon"></i>
-                                <p>تصنيف الكورسات</p>
+                                <p>عرض الكورسات</p>
                             </a>
                         </li>
                     </ul>
                 </li>
+                {{-- نهاية الكورسات --}}
+
+                {{-- Articals --}}
+
                 <li class="nav-item">
                     <a href="" class="nav-link">
                         <i class="nav-icon fas fa-columns"></i>
                         <p>
-                            Profile Setting
+                            اعدادات بروفايل المدير
+                        </p>
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a href="{{ route('mail.box') }}" class="nav-link">
+                        <i class="nav-icon fas fa-columns"></i>
+                        <p>
+                            الصندوق الوارد
                         </p>
                     </a>
                 </li>
@@ -132,15 +118,7 @@
                     <a href="" class="nav-link">
                         <i class="nav-icon fas fa-columns"></i>
                         <p>
-                            Mile Box
-                        </p>
-                    </a>
-                </li>
-                <li class="nav-item">
-                    <a href="" class="nav-link">
-                        <i class="nav-icon fas fa-columns"></i>
-                        <p>
-                            Setting Web Site
+                            اعدادات الموقع الخارجي
                         </p>
                     </a>
                 </li>

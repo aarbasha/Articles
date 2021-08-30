@@ -1,6 +1,6 @@
 <footer id="footer" class="footer">
 
-    <div class="footer-newsletter">
+    {{-- <div class="footer-newsletter">
         <div class="container">
             <div class="row justify-content-center">
                 <div class="col-lg-12 text-center">
@@ -9,19 +9,20 @@
                 </div>
                 <div class="col-lg-6">
                     <form action="" method="post">
-                        <input type="email" name="email"><input type="submit" value="Subscribe">
+                        <input type="email" name="email">
+                        <input type="submit" value="Subscribe">
                     </form>
                 </div>
             </div>
         </div>
-    </div>
+    </div> --}}
 
     <div class="footer-top">
         <div class="container">
             <div class="row gy-4">
                 <div class="col-lg-5 col-md-12 footer-info">
-                    <a href="index.html" class="logo d-flex align-items-center">
-                        <img src={{ asset("assets/img/logo.png" ) }}alt="">
+                    <a href="#" class="logo d-flex align-items-center">
+                        <img src={{ asset("assets/img/hero-img.png" ) }} alt="111111111">
                         <span>Ahmad Networking</span>
                     </a>
                     <p>Cras fermentum odio eu feugiat lide par naso tierra. Justo eget nada terra videa magna derita

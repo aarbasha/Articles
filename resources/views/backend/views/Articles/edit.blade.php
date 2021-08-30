@@ -150,7 +150,7 @@
                                 <div class="tab-pane fade" id="custom-content-above-profile" role="tabpanel"
                                     aria-labelledby="custom-content-above-profile-tab">
 
-                                    <div class="card">
+                                    {{-- <div class="card">
                                         <div class="card-header">
                                             <h3 class="card-title">
                                                 Summernote
@@ -159,12 +159,12 @@
                                         <!-- /.card-header -->
                                         <div class="card-body">
                                             <textarea class="forn-control" id="summernote" name="article"
-                                                rows="10">{{ $articles->article }}</textarea>
+                                                rows="10"></textarea>
                                         </div>
-                                    </div>
+                                    </div> --}}
 
-                                    {{-- <textarea name="" id="" cols="30" rows="6" class="form-control mt-3" disabled
-                                        style="font-size: 20px"></textarea> --}}
+                                    <textarea name="" id="" cols="30" rows="15" class="form-control mt-3"
+                                        style="font-size: 20px">{{ $articles->article }}</textarea>
                                 </div>
 
                                 </form>

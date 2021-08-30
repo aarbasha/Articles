@@ -28,12 +28,12 @@
                 <div class="row w-100">
                     @foreach ($articles as $article)
                         <div class="col-lg-4">
-                            <div class="card bg-dark">
+                            <div class="card bg-dark p-2" style="height:520px ">
 
                                 <div class="card-header">
                                     {{ $article->created_at }}
                                 </div>
-                                <img class="card-img-top" src="{{ asset('images/articles/' .  $article->photo) }}" alt="Card image cap" class="img-fluid"  style="max-height: 350px;min-height: 350px">
+                                <img class="card-img-top" src="{{ asset('images/articles/' .  $article->photo) }}" alt="Card image cap" class="img-fluid"  style="max-height: 350px;min-height: 250px">
 
 
                                 <div class="card-body d-flex flex-column justify-content-around">
@@ -41,24 +41,26 @@
                                         {{ $article->title }}
                                     </h2>
                                     <div class="d-flex flex-column justify-content-around">
-                                        <a href="{{ route('Articles.show', $article->id) }}" class="btn btn-warning my-1">
-                                            admin <i class="fa fa-arrow-right" aria-hidden="true"></i>
+                                        <a href="{{ route('Articles.show', $article->id) }}" class="btn btn-outline-warning my-1">
+                                          viewed as admin <i class="fa fa-arrow-right" aria-hidden="true"></i>
                                         </a>
-                                        <a href="" class="btn btn-success  my-1">
-                                            users <i class="fa fa-arrow-right" aria-hidden="true"></i>
+                                        <a href="{{ route('oneArticle',$article->id) }}" class="btn btn-outline-success  my-1">
+                                            viewed as users <i class="fa fa-arrow-right" aria-hidden="true"></i>
                                         </a>
+                                        <div class="d-flex mt-1 justify-content-around">
+                                            <a href="{{ route('Articles.delete', $article->id) }}" class="btn btn-outline-danger  my-1">
+                                                Delete <i class="fas fa-trash m-1"></i>
+                                            </a>
 
-                                        <a href="{{ route('Articles.delete', $article->id) }}" class="btn btn-danger  my-1">
-                                            Delete <i class="fas fa-trash m-1"></i>
-                                        </a>
+                                            <a href="{{ route('Articles.edit', $article->id) }}" class="btn btn-outline-primary  my-1">
+                                            Edit <i class="fas fa-edit m-1"></i>
+                                            </a>
 
-                                        <a href="{{ route('Articles.edit', $article->id) }}" class="btn btn-primary  my-1">
-                                           Edit <i class="fas fa-edit m-1"></i>
-                                        </a>
+                                            <a href="" class="btn btn-outline-info  my-1">
+                                                Shere<i class="fa fa-share m-1" aria-hidden="true"></i>
+                                            </a>
+                                        </div>
 
-                                        <a href="" class="btn btn-info  my-1">
-                                             Shere<i class="fa fa-share m-1" aria-hidden="true"></i>
-                                        </a>
                                     </div>
 
                                 </div>

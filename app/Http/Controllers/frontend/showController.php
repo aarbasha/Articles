@@ -8,7 +8,7 @@ use Illuminate\Http\Request;
 use App\Models\backend\Section;
 use App\Models\backend\Article;
 use App\Models\backend\Course;
-use App\Models\backend\Photo;
+use App\Models\backend\Platform;
 
 
 class showController extends Controller
@@ -18,12 +18,13 @@ class showController extends Controller
         $Articles = Article::paginate(3);
         $Sections = Section::all();
         return view('frontend.views.index',compact('Articles','Sections'));
-
     }
+
+    //########################################################################################
 
     public function showArticles(){
         // عرض صفحة  المقالات للزائر
-        $Articles = Article::paginate(3);
+        $Articles = Article::all();
         $Sections = Section::all();
         return view('frontend.views.Articles.Articles',compact('Articles','Sections'));
 
@@ -40,13 +41,32 @@ class showController extends Controller
            // عرض صفحة  المقال الواحد  للزائر
         $Articles = Article::where('id',$id)->first();
         $Sections = Section::where('id',$id)->first();
-        return view('frontend.views.Articles.oneArticle',compact('Articles','Sections'));
+        $xxx = Section::all();
+        return view('frontend.views.Articles.oneArticle',compact('Articles','Sections','xxx'));
     }
+
+    //########################################################################################
+
 
     public function showCourses(){
         // عرض صفحة  الكورسات التعليمية للزائر
         $Courses = Course::all();
-        $Sections = Section::all();
-        return view('frontend.views.Courses' , compact('Courses','Sections'));
+        $Platforms = Platform::all();
+        return view('frontend.views.Courses.Courses' , compact('Courses','Platforms'));
     }
+
+    public function sortCourse($id){
+        // عرض المقالات حسب الصنف
+        $Courses = Course::where('platforms_id', $id)->get();
+        $Platforms = Platform::all();
+        return view('frontend.views.Courses.courses_sort',compact('Courses','Platforms'));
+    }
+
+    public function oneCourses($id){
+        // عرض صفحة  المقال الواحد  للزائر
+     $Courses = Course::where('id',$id)->first();
+     $Platforms = Platform::where('id',$id)->first();
+     $zzz = Platform::all();
+     return view('frontend.views.Courses.course_info',compact('Courses','Platforms','zzz'));
+ }
 }

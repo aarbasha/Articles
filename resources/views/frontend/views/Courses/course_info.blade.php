@@ -11,8 +11,8 @@
 
     <div class="row d-flex justify-content-around mt-2">
         @foreach ($Courses as $Course)
-        <div class="card m-1" style="width:26rem;">
-            <img class="card-img-top p-0 m-0" src={{ asset('images/courses/' . $Course->photo) }}
+        <div class="card   m-1" style="width:25rem;">
+            <img class="card-img-top" src={{ asset('images/courses/' . $Course->photo) }}
                 alt="Card image cap" style="width:100%;height:300px">
             <div class="card-body d-flex flex-column justify-content-start ">
                 <div class="card-title">
@@ -43,7 +43,7 @@
 
                     @auth
                     <div class="dropdown show">
-                        <a class="btn btn-outline-danger  mt-1 dropdown-toggle m-1" href="#" role="button"
+                        <a class="btn btn-outline-success btn-block  mt-1 dropdown-toggle m-1" href="#" role="button"
                             id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true"
                             aria-expanded="false">
                             Admin
@@ -90,21 +90,11 @@
         </ul>
     </div> --}}
 @endsection
-    @section('sort')
-        @foreach ($Platforms as $Platform)
-            <li><a href="{{ route('Courses.sort', $Platform->id) }}">{{ $Platform->title }} <span>(25)</span></a></li>
-
-        @endforeach
-    @endsection
-    @section('post-side')
-            @foreach ($Courses as $Course)
-            <div class="post-item clearfix">
-                <img src="{{ asset('images/courses/' . $Course->photo) }}" alt="">
-                <h4><a href="{{ $Course->url  }}">{{ $Course->title }}</a></h4>
-                <time datetime="2020-01-01">{{ $Course->created_at  }}</time>
-            </div>
-            @endforeach
-    @endsection
+@section('sort')
+    @foreach ($zzz as $zz)
+        <li><a href="/sortCourse/{{$zz->id}}">{{ $zz->title }} <span>(25)</span></a></li>
+    @endforeach
+@endsection
 @endsection
 @section('js')
 <script src="{{ asset('js/app.js') }}" defer></script>

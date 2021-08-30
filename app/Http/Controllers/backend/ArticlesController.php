@@ -36,7 +36,7 @@ class ArticlesController extends Controller
             'title'=>'min:3|max:90',
             'description'=>'min:5|max:30',
             'article'=>'required',
-            "photo" => "image|mimes:jpg,jpeg,gif,png|max:2048",
+            "photo" => "image|mimes:jpg,jpeg,gif,png",
         ]);
 
         $articles = new article;
@@ -131,6 +131,7 @@ class ArticlesController extends Controller
             $articles->Save();
             session()->flash('Add' , 'The article has been successfully Updated');
             return redirect()->route('Articles.index');
+
             }
         }elseif($request->photo){
             $file_name =  $this->SavaImagse($request->photo,'images/articles');
@@ -147,6 +148,7 @@ class ArticlesController extends Controller
             $articles->Save();
             session()->flash('Add' , 'The article has been successfully Updated');
             return redirect()->route('Articles.index');
+
             }
         }
     }
@@ -166,45 +168,6 @@ class ArticlesController extends Controller
         return view('backend.views.Articles.grid',compact('articles','Sections'));
     }
 
-    public function storeMulteImage(Request $request){
-        if ($request->hasfile('file')) {
-            $file = $request->file('file');
-            $fileName = time() . '.' . $file->getClientOriginalExtension();
-            // $articles_id = Article::where('id' , $id)->first()->id;
-            $path = $file->move('images/articles/' ,$fileName );
-            if ($path) {
-                    Photo::Create([
-                        'path' => $fileName,
-                        // 'articles_id' => $articles_id
-                    ]);
-               //insert file to Database
-                return response()->json(['uplode_status' =>'success'],200);
-            }else{
-                //note insert file to Database
-                return response()->json(['uplode_status' =>'failed'],401);
-            }
-        }
-    }
 
-    //use Dropzine js uplode multe img ####### Update ######
-    public function uplode(Request $request , $id){
-        if ($request->hasfile('file')) {
-            $file = $request->file('file');
-            $fileName = time() . '.' . $file->getClientOriginalExtension();
-            $articles_id = Article::where('id' , $id)->first()->id;
-            $path = $file->move('images/articles/' ,$fileName );
-            if ($path) {
-                    Photo::Create([
-                        'path' => $fileName,
-                        'articles_id' => $articles_id
-                    ]);
-               //insert file to Database
-                return response()->json(['uplode_status' =>'success'],200);
-            }else{
-                //note insert file to Database
-                return response()->json(['uplode_status' =>'failed'],401);
-            }
-        }
-    }
 
 }

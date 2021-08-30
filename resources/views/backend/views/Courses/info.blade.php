@@ -101,7 +101,7 @@
                                         <tr>
                                             <th scope="row">{{ $Courses->id }}</th>
                                             <td>{{ $Courses->title }}</td>
-                                            <td>{{ $Courses->section->title }}</td>
+                                            <td>{{ $Courses->Platform->title }}</td>
                                         </tr>
                                     </tbody>
                                 </table>

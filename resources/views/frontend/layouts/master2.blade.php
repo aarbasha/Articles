@@ -6,6 +6,7 @@
 </head>
 
 <body>
+
     <!-- ======= Header ======= -->
     <header id="header" class="header fixed-top">
         <div class="container-fluid container-xl d-flex align-items-center justify-content-between">
@@ -19,7 +20,8 @@
                 <ul>
                     <li><a class="nav-link scrollto " href="/">الرئيسية</a></li>
                     <li><a class="nav-link scrollto " href="{{ route('showArticles') }}">مقالات</a></li>
-                    <li><a class="nav-link scrollto " href="{{ route('showCourses') }}">الكورسات التعليمة</a></li>
+                    <li><a class="nav-link scrollto " href="{{ route('showCourses') }}">الدورات التعليمة</a></li>
+
                     @guest
                         {{-- <li class="nav-item">
                         <a class="nav-link scrollto" href="{{ route('login') }}">{{ __('Login') }}</a>
@@ -49,20 +51,118 @@
                             </div>
                         </li>
                     @endguest
+
+
                 </ul>
                 <i class="bi bi-list mobile-nav-toggle"></i>
             </nav>
 
         </div>
     </header>
-    <!-- .navbar -->
+
+    <main id="main">
+
+        <!-- ======= Breadcrumbs ======= -->
+        <section class="breadcrumbs">
+            <div class="container">
+
+                <ol>
+                    <li><a href="index.html">Home</a></li>
+                    <li>
+                        Blog
+                    </li>
+                </ol>
+                <h2>
+                    Blog
+                </h2>
+
+            </div>
+        </section>
+        <!-- End Breadcrumbs -->
+
+        <!-- ======= Blog Section ======= -->
+        <section id="blog" class="blog">
+            <div class="container" data-aos="fade-up">
+
+                <div class="row">
+
+                    <div class="col-lg-8 entries">
+
+                      @yield('article')
+
+
+                        <!-- End blog entry -->
+                    </div>
+                    <!-- End blog entries list -->
+
+                    <div class="col-lg-4">
+
+                        <div class="sidebar" >
+
+                            <h3 class="sidebar-title">Search</h3>
+                            <div class="sidebar-item search-form">
+                                <form action="">
+                                    <input type="text">
+                                    <button type="submit"><i class="bi bi-search"></i></button>
+                                </form>
+                            </div><!-- End sidebar search formn-->
+
+                            <h3 class="sidebar-title">Categories</h3>
+                            <div class="sidebar-item categories ">
+                                <ul>
+                                   @yield('sort')
+                                </ul>
+                            </div>
+                            <!-- End sidebar categories-->
+
+                            <h3 class="sidebar-title">Recent Posts</h3>
+                            <div class="sidebar-item recent-posts">
+                             @yield('post-side')
+
+
+                            </div>
+                            <!-- End sidebar recent posts-->
+
+                            <h3 class="sidebar-title">Tags</h3>
+                            <div class="sidebar-item tags">
+                                <ul>
+                                    <li><a href="#">App</a></li>
+                                    <li><a href="#">IT</a></li>
+                                    <li><a href="#">Business</a></li>
+                                    <li><a href="#">Mac</a></li>
+                                    <li><a href="#">Design</a></li>
+                                    <li><a href="#">Office</a></li>
+                                    <li><a href="#">Creative</a></li>
+                                    <li><a href="#">Studio</a></li>
+                                    <li><a href="#">Smart</a></li>
+                                    <li><a href="#">Tips</a></li>
+                                    <li><a href="#">Marketing</a></li>
+                                </ul>
+                            </div><!-- End sidebar tags-->
+
+                        </div>
+
+                    </div><!-- End blog sidebar -->
+
+                </div>
+
+            </div>
+        </section>
+        <!-- End Blog Section -->
+
+    </main>
+
+
     <!-- End Header -->
+
     <!-- ======= Hero Section ======= -->
     @yield('content')
     <!-- End #main -->
+
     <!-- ======= Footer ======= -->
     @include('frontend.layouts.footer')
     <!-- End Footer -->
+
     <a href="#" class="back-to-top d-flex align-items-center justify-content-center">
         <i class="bi bi-arrow-up-short"></i>
     </a>

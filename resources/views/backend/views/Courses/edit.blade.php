@@ -48,10 +48,10 @@
                                                     placeholder="Enter Your title Course" value="{{ $Courses->title }}">
                                             </div>
                                             <div class="form-group col-lg-6">
-                                                <label>Section</label>
-                                                <select name="sections_id" class="form-control">
-                                                    @foreach ($Sections as $Section)
-                                                        <option value="{{ $Section->id }}">{{ $Section->title }}
+                                                <label>Platforms</label>
+                                                <select name="platforms_id" class="form-control">
+                                                    @foreach ($Platforms as $Platform)
+                                                        <option value="{{ $Platform->id }}">{{ $Platform->title }}
                                                         </option>
                                                     @endforeach
                                                 </select>

@@ -3,14 +3,32 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\backend\SectionsController;
+use App\Http\Controllers\backend\platformsController;
 use App\Http\Controllers\backend\ArticlesController;
 use App\Http\Controllers\backend\CoursesController;
-use App\Http\Controllers\backend\PhotosController;
+use App\Http\Controllers\backend\mailController;
+use App\Http\Controllers\backend\userController;
+use App\Http\Controllers\backend\photosArticlesController;
 
 // المصادقة
-Auth::routes();
+Auth::routes(['register'=>false]);
 
 Route::get('/ahmad', [HomeController::class, 'home'])->name('ahmad');
+//اولا مجلد المنصات
+Route::group(['prefix'=>'Platforms','middleware'=>'auth'],function () {
+    //عرض صفحة المنصات
+    Route::get('/', [platformsController::class,'index'])->name('Platforms.index');
+    // عرض صفحة اضافة المنصات
+    Route::get('create' , [platformsController::class,'create'])->name('Platforms.create');
+    //اضافة المنصات
+    Route::post('store' , [platformsController::class,'store'])->name('Platforms.store');
+    // عرض صفحة تعديل المنصة
+    Route::get('edit/{id}' , [platformsController::class,'edit'])->name('Platforms.edit');
+    // تعديل بيانات المنصة
+    Route::post('update/{id}' , [platformsController::class,'update'])->name('Platforms.update');
+    // حذف منصة من المنصات
+    Route::get('delete/{id}' , [platformsController::class,'destroy'])->name('Platforms.delete');
+});
 //اولا مجلد الاقسام
 Route::group(['prefix'=>'Sections','middleware'=>'auth'],function () {
     //عرض صفحة الاقسام
@@ -26,7 +44,7 @@ Route::group(['prefix'=>'Sections','middleware'=>'auth'],function () {
     // حذف قسم من الاقسام
     Route::get('delete/{id}' , [SectionsController::class,'destroy'])->name('Sections.delete');
 });
-
+// ثالثا مجلد المقالات
 Route::group(['prefix'=>'Articles','middleware'=>'auth'],function () {
      //عرض صفحة المقالات
      Route::get('/', [ArticlesController::class,'index'])->name('Articles.index');
@@ -44,10 +62,7 @@ Route::group(['prefix'=>'Articles','middleware'=>'auth'],function () {
      Route::get('show/{id}' , [ArticlesController::class,'show'])->name('Articles.show');
      // عرض شبكي لجميع المقالات بدون تفاصيل
      Route::get('grid' , [ArticlesController::class,'grid'])->name('Articles.grid');
-    // رفع صور متعددة
-     Route::post('storeMulteImage/' , [ArticlesController::class,'storeMulteImage'])->name('storeMulteImage');
-    //تحديث صور متعددة
-     Route::post('uplode/{id}' , [ArticlesController::class,'uplode'])->name('Articles.uplode');
+
 
 });
 
@@ -71,9 +86,16 @@ Route::group(['prefix'=>'Courses','middleware'=>'auth'],function () {
 
 });
 
-Route::group(['prefix'=>'Photos','middleware'=>'auth'],function () {
-    //عرض صفحة الكورسات
-    Route::post('/', [PhotosController::class,'uplode'])->name('Photos.index');
+Route::group(['prefix'=>'Mail','middleware'=>'auth'],function () {
 
+    Route::get('/', [mailController::class,'inbox'])->name('mail.box');
+
+});
+
+Route::group(['prefix'=>'photos','middleware'=>'auth'],function(){
+     // رفع صور متعددة
+     Route::post('storeMulteImage/' , [photosArticlesController::class,'storeMulteImage'])->name('storeMulteImage');
+    //تحديث صور متعددة
+     Route::post('uplode/{id}' , [photosArticlesController::class,'uplode'])->name('Articles.uplode');
 
 });

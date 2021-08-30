@@ -81,17 +81,17 @@
                                                 <td class="d-flex justify-content-between">
 
                                                     <a href="{{ route('Articles.show', $article->id) }}"
-                                                        class="btn btn-success btn-sm">
+                                                        class="btn rounded-circle btn-outline-success btn-sm">
                                                          <i class="fas fa-eye m-1"></i>
                                                     </a>
 
                                                     <a href="{{ route('Articles.edit', $article->id) }}"
-                                                        class="btn btn-primary btn-sm">
+                                                        class="btn rounded-circle btn-outline-info btn-sm">
                                                          <i class="fas fa-edit m-1"></i>
                                                     </a>
 
                                                     <a href="{{ route('Articles.delete', $article->id) }}"
-                                                        class="btn btn-danger btn-sm">
+                                                        class="btn rounded-circle btn-outline-danger btn-sm">
                                                          <i class="fas fa-trash m-1"></i>
                                                     </a>
                                                 </td>
