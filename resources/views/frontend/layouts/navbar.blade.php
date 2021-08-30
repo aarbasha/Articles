@@ -14,7 +14,7 @@
                 <li><a class="nav-link scrollto" href="#portfolio">اعمالي</a></li>
                 <li><a class="nav-link scrollto" href="#team">فريقي</a></li>
                 <li><a class="nav-link scrollto" href="{{ route('showArticles') }}">المقالات</a></li>
-                <li><a class="nav-link scrollto" href="{{ route('showCourses') }}">الكورسات التعليمة</a></li>
+                <li><a class="nav-link scrollto" href="{{ route('showCourses') }}">الدورات التعليمة</a></li>
 
 
                 {{-- <li class="dropdown"><a href="#"><span>مقالات</span> <i class="bi bi-chevron-down"></i></a>

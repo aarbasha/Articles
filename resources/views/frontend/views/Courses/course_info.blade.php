@@ -90,12 +90,21 @@
         </ul>
     </div> --}}
 @endsection
-@section('sort')
-    @foreach ($zzz as $zz)
-        <li><a href="/sortCourse/{{$zz->id}}">{{ $zz->title }} <span>(25)</span></a></li>
-    @endforeach
-@endsection
-@endsection
+        @section('sort')
+            @foreach ($zzz as $zz)
+                <li><a href="/sortCourse/{{$zz->id}}">{{ $zz->title }} <span></span></a></li>
+            @endforeach
+        @endsection
+        @section('post-side')
+            @foreach ($randoms as $random)
+            <div class="post-item clearfix">
+                <img src="{{ asset('images/courses/' . $random->photo) }}" alt="">
+                <h4><a href="{{ $random->url  }}">{{ $random->title }}</a></h4>
+                <time datetime="2020-01-01">{{ $random->created_at->toDayDateTimeString()  }}</time>
+            </div>
+            @endforeach
+            @endsection
+        @endsection
 @section('js')
 <script src="{{ asset('js/app.js') }}" defer></script>
 

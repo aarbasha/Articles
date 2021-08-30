@@ -69,7 +69,7 @@
   </script>
   <script>
       $(Document).ready(function() {
-          $('.alert').fadeOut(8000);
+          $('.alert').fadeOut(4000);
       });
   </script>
   @yield('js')

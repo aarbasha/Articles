@@ -19,6 +19,7 @@
                     <h2 class="text-center">{{ $Course->title }}</h2>
                 </div>
                 <div>
+                    <p class="text-center p-2">{{ $Course->created_at->toDayDateTimeString() }}</p>
                     <p class="text-center p-2 font-weight-bold">Status Course :
                         @if ($Course->status == 0)
                             <span class="text-primary font-weight-bold">In Progress
@@ -92,16 +93,16 @@
 @endsection
     @section('sort')
         @foreach ($Platforms as $Platform)
-            <li><a href="{{ route('Courses.sort', $Platform->id) }}">{{ $Platform->title }} <span>(25)</span></a></li>
+            <li><a href="{{ route('Courses.sort', $Platform->id) }}">{{ $Platform->title }} <span></span></a></li>
 
         @endforeach
     @endsection
     @section('post-side')
-            @foreach ($Courses as $Course)
+            @foreach ($randoms as $random)
             <div class="post-item clearfix">
-                <img src="{{ asset('images/courses/' . $Course->photo) }}" alt="">
-                <h4><a href="{{ $Course->url  }}">{{ $Course->title }}</a></h4>
-                <time datetime="2020-01-01">{{ $Course->created_at  }}</time>
+                <img src="{{ asset('images/courses/' . $random->photo) }}" alt="">
+                <h4><a href="{{ $random->url  }}">{{ $random->title }}</a></h4>
+                <time datetime="2020-01-01">{{ $random->created_at->toDayDateTimeString()  }}</time>
             </div>
             @endforeach
     @endsection

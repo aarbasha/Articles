@@ -22,8 +22,14 @@
                                 </a>
                             </li>
 
-                            <li class="d-flex align-items-center"><i class="bi bi-clock"></i> <a href="blog-single.html"><time
-                                        datetime="2020-01-01">{{ $Article->created_at  }}</time></a></li>
+                            <li class="d-flex align-items-center">
+                                <i class="bi bi-clock"></i>
+                                <a href="blog-single.html">
+                                <time datetime="">
+                                        {{ $Article->created_at->toDayDateTimeString()  }}
+                                    </time>
+                                </a>
+                            </li>
 
                             {{-- <li class="d-flex align-items-center"><i class="bi bi-chat-dots"></i>
                                 <a href="blog-single.html">12
@@ -55,6 +61,7 @@
 
                 </article>
             @endforeach
+            {{-- {{ $Articles->links() }} --}}
 
             {{-- <div class="blog-pagination">
                 <ul class="justify-content-center">
@@ -66,8 +73,18 @@
         @endsection
         @section('sort')
             @foreach ($Sections as  $Section)
-            <li><a href="{{ route('article.sort' ,$Section->id ) }}">{{ $Section->title }} <span>(25)</span></a></li>
+            <li><a href="{{ route('article.sort' ,$Section->id ) }}">{{ $Section->title }} <span></span></a></li>
             @endforeach
+        @endsection
+
+        @section('post-side')
+        @foreach ($randoms as $random)
+        <div class="post-item clearfix">
+            <img src="{{ asset('images/articles/' . $random->photo) }}" alt="">
+            <h4><a href="{{ $random->url  }}">{{ $random->title }}</a></h4>
+            <time datetime="2020-01-01">{{ $random->created_at->toDayDateTimeString()  }}</time>
+        </div>
+        @endforeach
         @endsection
 
 @endsection

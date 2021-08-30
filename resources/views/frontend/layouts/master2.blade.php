@@ -67,7 +67,7 @@
             <div class="container">
 
                 <ol>
-                    <li><a href="index.html">Home</a></li>
+                    <li><a href="{{ route('home') }}">Home</a></li>
                     <li>
                         Blog
                     </li>
@@ -115,7 +115,7 @@
                             </div>
                             <!-- End sidebar categories-->
 
-                            <h3 class="sidebar-title">Recent Posts</h3>
+                            <h3 class="sidebar-title">Proposals</h3>
                             <div class="sidebar-item recent-posts">
                              @yield('post-side')
 

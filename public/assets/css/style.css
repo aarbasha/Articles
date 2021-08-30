@@ -1542,6 +1542,7 @@ section {
 
 .recent-blog-posts .post-box .post-img img {
   transition: 0.5s;
+  min-height: 300px;
 }
 
 .recent-blog-posts .post-box .post-date {
@@ -1563,6 +1564,10 @@ section {
 
 .recent-blog-posts .post-box .readmore {
   display: flex;
+  padding: 20px;
+  text-align: center;
+  border-radius: 20px;
+  /* border: 1px solid #012970; */
   align-items: center;
   font-weight: 600;
   line-height: 1;

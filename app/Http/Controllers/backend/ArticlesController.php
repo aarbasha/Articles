@@ -113,7 +113,7 @@ class ArticlesController extends Controller
 
         $request->validate([
             'title'=>'min:3|max:90',
-            'description'=>'min:5',
+            'description'=>'min:5|max:90',
             'article'=>'required'
         ]);
 
