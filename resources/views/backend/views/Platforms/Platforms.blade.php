@@ -22,7 +22,7 @@
             <div class="container-fluid">
                 <div class="row">
                     <div class="col-12">
-                        <div class="card">
+                        <div class="">
                             <div class="card-header text-center">
                                 <h3 class="card-title ">View All Categories </h3>
                             </div>
@@ -33,7 +33,9 @@
                                     </a>
                                 </div>
                                 <div class="col-lg-12 d-flex justify-content-center mr-5 mt-3" style="position: absolute;">
-                                    @include('backend.views.Platforms.alert')
+                                    <div>
+                                        @include('backend.layouts.alert')
+                                    </div>
                                 </div>
                             </div>
                             <!-- /.card-header -->

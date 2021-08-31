@@ -8,8 +8,11 @@
                 <div class="row mb-2">
                     <div class="col-lg-12 d-flex justify-content-venter">
                         <h1>Shwo All Courses</h1>
-                        <div style="position: absolute;top:50;left:150px">
-                            @include('backend.views.Articles.alert')
+
+                    </div>
+                    <div class="col-lg-12 d-flex justify-content-center mr-5 mt-3" style="position: absolute;">
+                        <div>
+                            @include('backend.layouts.alert')
                         </div>
                     </div>
                     <div class="col-lg-12">

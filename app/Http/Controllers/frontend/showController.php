@@ -33,7 +33,7 @@ class showController extends Controller
 
     public function sort($id){
         // عرض المقالات حسب الصنف
-        $Articles = Article::where('sections_id', $id)->get();
+        $Articles = Article::where('sections_id', $id)->paginate(3);
         $Sections = Section::all();
         $randoms = Article::inRandomOrder()->paginate(4);
         return view('frontend.views.Articles.sort_Articles',compact('Articles','Sections','randoms'));
@@ -60,8 +60,8 @@ class showController extends Controller
     }
 
     public function sortCourse($id){
-        // عرض المقالات حسب الصنف
-        $Courses = Course::where('platforms_id', $id)->get();
+        // عرض الكورسات حسب الصنف
+        $Courses = Course::where('platforms_id', $id)->paginate(4);
         $Platforms = Platform::all();
         $randoms = Course::inRandomOrder()->paginate(4);
         return view('frontend.views.Courses.courses_sort',compact('Courses','Platforms','randoms'));

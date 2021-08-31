@@ -8,8 +8,11 @@
                 <div class="row mb-2">
                     <div class="col-lg-12 d-flex justify-content-venter">
                         <h1>Shwo All Article</h1>
-                        <div style="position: absolute;top:50;left:150px">
-                            @include('backend.views.Articles.alert')
+
+                    </div>
+                    <div class="col-lg-12 d-flex justify-content-center mr-5 mt-3" style="position: absolute;">
+                        <div>
+                            @include('backend.layouts.alert')
                         </div>
                     </div>
                     <div class="col-lg-12">
@@ -41,10 +44,10 @@
                                         {{ $article->title }}
                                     </h2>
                                     <div class="d-flex flex-column justify-content-around">
-                                        <a href="{{ route('Articles.show', $article->id) }}" class="btn btn-outline-warning my-1">
+                                        <a href="{{ route('Articles.show', $article->id) }}" class="btn btn-outline-warning my-1" target="_blank">
                                           viewed as admin <i class="fa fa-arrow-right" aria-hidden="true"></i>
                                         </a>
-                                        <a href="{{ route('oneArticle',$article->id) }}" class="btn btn-outline-success  my-1">
+                                        <a href="{{ route('oneArticle',$article->id) }}" class="btn btn-outline-success  my-1" target="_blank">
                                             viewed as users <i class="fa fa-arrow-right" aria-hidden="true"></i>
                                         </a>
                                         <div class="d-flex mt-1 justify-content-around">
@@ -67,7 +70,15 @@
                             </div>
                         </div>
                     @endforeach
+
                 </div>
+
+                {{-- <div class="row" style="height: 100px">
+                    <div class="col-lg-12 d-flex justify-content-center">
+                        {{ $articles->links() }}
+                    </div>
+                </div> --}}
+
             </div>
         </section>
         <!-- /.content -->

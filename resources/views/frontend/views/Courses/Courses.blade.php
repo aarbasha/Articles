@@ -82,6 +82,12 @@
         @endforeach
     </div>
 
+    <div class="row mt-5 " style="height: 100px">
+        <div class="col-lg-12  d-flex justify-content-center">
+            {{ $Courses->links() }}
+        </div>
+    </div>
+
 
     {{-- <div class="blog-pagination">
         <ul class="justify-content-center">

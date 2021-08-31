@@ -35,6 +35,13 @@
                                 Back
                             </a>
                         </div>
+                        <div class="row" style="position: absolute">
+                            <div class="col-lg-12 d-flex justify-content-center" style="margin-right: 200px">
+                                <div class="" style="width: 900px;">
+                                    @include('backend.layouts.alert')
+                                </div>
+                            </div>
+                        </div>
                         <div class="col-lg-12 col-md-12 col">
                             <div class="card row">
                                 <form action="{{ route('Platforms.store') }}" method="POST">
@@ -45,7 +52,7 @@
 
                                                 <label for="">أدخل اسم المنصة التعليمية</label>
                                                 <input type="text" name="title" class="form-control my-2" id="title"
-                                                    placeholder="Enter Your title Platform">
+                                                    placeholder="Enter Your title Platform" value="{{ old('title') }}">
                                                 {{-- <label for="">أو اختر اسم منصة تعليمية من هنا</label>
                                                 <select name="title" id="title" class="form-control">
                                                     <option value="" class="form-control">
@@ -81,7 +88,7 @@
                                             <div class="form-group col-lg-12">
                                                 <label for="info">الوصف عن المنصة</label>
                                                 <textarea name="description" class="form-control" id="" cols="30"
-                                                    rows="10" placeholder="Enter Your info Platform"></textarea>
+                                                    rows="10" placeholder="Enter Your info Platform">{{ old('description') }}</textarea>
                                             </div>
 
                                             <button type="submit" class="btn btn-outline-danger ml-2">

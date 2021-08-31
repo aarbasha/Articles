@@ -34,9 +34,17 @@ class ArticlesController extends Controller
 
         $request->validate([
             'title'=>'min:3|max:90',
-            'description'=>'min:5|max:30',
+            'description'=>'min:5|max:90',
             'article'=>'required',
             "photo" => "image|mimes:jpg,jpeg,gif,png",
+        ],[
+            'title.min'=>'يجب الا يقل العنوان عن ثلاث احروف',
+            'title.max'=>'يجب الا يزيد العنوان عن 90 حرف',
+            'description.min'=>'يجب الا يقل الوصف عن خمس احروف',
+            'description.max'=>'يجب الا يزيد الوصف عن 90 حرف',
+            'article.required'=>'حقل المقال مطلوب',
+            "photo.image" => "يجب وضع صورة فقط",
+            "photo.mimes" => "صيغ الصور المدعومة, jpeg,gif,png",
         ]);
 
         $articles = new article;
@@ -53,7 +61,7 @@ class ArticlesController extends Controller
             }
             else{
             $articles->Save();
-            session()->flash('Add' , 'The article has been successfully added');
+            session()->flash('Add' , 'تم نشر المقال بنجاح');
             return redirect()->route('Articles.index');
         }
         }elseif(!$request->photo){
@@ -67,7 +75,7 @@ class ArticlesController extends Controller
             }
             else{
             $articles->Save();
-            session()->flash('Add' , 'The article has been successfully added');
+            session()->flash('Add' , 'تم نشر المقال بنجاح');
             return redirect()->route('Articles.index');
         }
 
@@ -114,7 +122,16 @@ class ArticlesController extends Controller
         $request->validate([
             'title'=>'min:3|max:90',
             'description'=>'min:5|max:90',
-            'article'=>'required'
+            'article'=>'required',
+            "photo" => "image|mimes:jpg,jpeg,gif,png",
+        ],[
+            'title.min'=>'يجب الا يقل العنوان عن ثلاث احروف',
+            'title.max'=>'يجب الا يزيد العنوان عن 90 حرف',
+            'description.min'=>'يجب الا يقل الوصف عن خمس احروف',
+            'description.max'=>'يجب الا يزيد الوصف عن 90 حرف',
+            'article.required'=>'حقل المقال مطلوب',
+            "photo.image" => "يجب وضع صورة فقط",
+            "photo.mimes" => "صيغ الصور المدعومة, jpeg,gif,png",
         ]);
 
         $articles = Article::where('id',$id)->first();
@@ -129,7 +146,7 @@ class ArticlesController extends Controller
             }
             else{
             $articles->Save();
-            session()->flash('Add' , 'The article has been successfully Updated');
+            session()->flash('edit' , 'تم تحديث بيانات المقال بنجاح');
             return redirect()->route('Articles.index');
 
             }
@@ -146,8 +163,9 @@ class ArticlesController extends Controller
             }
             else{
             $articles->Save();
-            session()->flash('Add' , 'The article has been successfully Updated');
-            return redirect()->route('Articles.index');
+            session()->flash('edit' , 'تم تحديث بيانات المقال بنجاح');
+            // return redirect()->route('Articles.index');
+            return back($request);
 
             }
         }
@@ -157,7 +175,7 @@ class ArticlesController extends Controller
     {
         $articles = Article::where('id' , $id)->first();
         $articles->delete();
-        session()->flash('Add' , 'The article has been successfully Deleted');
+        session()->flash('delete' , 'تم حذف المقال بنجاح');
         return back();
 
     }

@@ -9,7 +9,7 @@
                 <div class="container-fluid">
                     <div class="row mb-2">
                         <div class="col-sm-6">
-                            <h1>Add New Course</h1>
+                            <h1>Add New Section</h1>
                         </div>
                         <div class="col-sm-6">
                             <ol class="breadcrumb float-sm-right">
@@ -29,7 +29,16 @@
                             <a href="{{ route('Sections.index') }}" class="btn btn-primary float-right">
                                 Back
                             </a>
+
                         </div>
+                        <div class="row" style="position: absolute">
+                            <div class="col-lg-12 d-flex justify-content-center" style="margin-right: 200px">
+                                <div class="" style="width: 900px;">
+                                    @include('backend.layouts.alert')
+                                </div>
+                            </div>
+                        </div>
+
                         <div class="col-lg-12 col-md-12 col">
                             <div class="card row">
                                 <form action="{{ route('Sections.store') }}" method="POST">
@@ -39,17 +48,17 @@
                                             <div class="form-group col-lg-12">
                                                 <label for="title">Title</label>
                                                 <input type="text" name="title" class="form-control" id="title"
-                                                    placeholder="Enter Your title Section">
+                                                    placeholder="Enter Your title Section" value="{{ old('title') }}">
                                             </div>
                                         </div>
                                         <div class="row">
                                             <div class="form-group col-lg-12">
                                                 <label for="info">Section info</label>
                                                 <textarea name="description" class="form-control" id="" cols="30" rows="10"
-                                                    placeholder="Enter Your info Section"></textarea>
+                                                    placeholder="Enter Your info Section">{{ old('description') }}</textarea>
                                             </div>
 
-                                            <button type="submit" class="btn btn-primary ml-2">
+                                            <button type="submit" class="btn btn-dark ml-2">
                                                 Create Tha Section
                                             </button>
                                         </div>

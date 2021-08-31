@@ -48,6 +48,11 @@
 
         </article>
     @endforeach
+    <div class="row " style="height: 100px">
+        <div class="col-lg-12 d-flex justify-content-center">
+            {{ $Articles->links() }}
+        </div>
+    </div>
     {{-- <div class="blog-pagination">
         <ul class="justify-content-center">
             <li><a href="#">1</a></li>

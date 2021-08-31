@@ -25,8 +25,13 @@ class SectionsController extends Controller
     public function store(Request $request)
     {
         $request->validate([
-            'title'=>'min:3|max:90',
+            'title'=>'min:3|max:30|unique:Sections',
             'description'=>'min:5',
+        ],[
+            'title.min'=>'يجب ان لا يقل العنوان عن 3 احروف',
+            'title.max'=>'يجب ان لا يزيد العنوان عن 30 حرف',
+            'title.unique'=>'اسم القسم موجود مسبقاً',
+            'description'=>'يجب ان لا يقل الوصف عن 3 احروف',
         ]);
 
         $Sections = new Section;
@@ -54,8 +59,13 @@ class SectionsController extends Controller
     public function update(Request $request, $id)
     {
         $request->validate([
-            'title'=>'min:3|max:90',
+            'title'=>'min:3|max:30|unique:Sections',
             'description'=>'min:5',
+        ],[
+            'title.min'=>'يجب ان لا يقل العنوان عن 3 احروف',
+            'title.max'=>'يجب ان لا يزيد العنوان عن 30 حرف',
+            'title.unique'=>'اسم القسم موجود مسبقاً',
+            'description'=>'يجب ان لا يقل الوصف عن 3 احروف',
         ]);
 
         $Sections = Section::where('id' , $id)->first();

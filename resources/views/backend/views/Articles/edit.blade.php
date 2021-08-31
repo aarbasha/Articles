@@ -43,13 +43,17 @@
                 <div class="container-fluid">
                     <div class="row">
                         <div class="col-lg-12 d-flex justify-content-end">
-                            <div class="">
+                            <div class="___class_+?14___">
                                 <a href="{{ route('Articles.index') }}" class="btn btn-primary flote-right mb-2">
                                     Back
                                 </a>
                             </div>
                         </div>
-
+                        <div class="col-lg-8 d-flex justify-content-center" style="position: absolute;">
+                            <div style="width: 800px">
+                                @include('backend.layouts.alert')
+                            </div>
+                        </div>
                         <div class="col-lg-12">
                             <h4 class=" ">Edit tha Article : <span class="text-primary">
                                     {{ $articles->title }}</span></h4>
@@ -100,13 +104,13 @@
                                                 <div class="row">
                                                     <div class="form-group col-lg-12">
                                                         <label for="title">Title</label>
-                                                        <input type="text" name="title" class="form-control" id="title"
+                                                        <input type="text" name="title" required class="form-control" id="title"
                                                             value="{{ $articles->title }}">
                                                     </div>
                                                     <div class="form-group col-lg-4">
                                                         <label>Section</label>
                                                         <select name="sections_id" class="form-control"
-                                                            style="width: 100%;">
+                                                            style="width: 100%;" required>
                                                             <option value="{{ $articles->sections_id }}" selected>Chois
                                                                 Section ..</option>
                                                             @foreach ($Sections as $Section)
@@ -117,8 +121,9 @@
                                                     </div>
                                                     <div class="form-group col-lg-4">
                                                         <label>old Section</label>
-                                                        <input type="text" disabled name="sections_id" class="form-control"
-                                                            id="title" value="{{ $articles->section->title }}">
+                                                        <input type="text" disabled name="sections_id"
+                                                            class="form-control" id="title"
+                                                            value="{{ $articles->section->title }}" required>
                                                     </div>
                                                     <div class="form-group col-lg-4">
                                                         <label for="photo">Uploud Photo</label>
@@ -132,7 +137,7 @@
                                                     <div class="form-group col-lg-12">
                                                         <label for="description">Description</label>
                                                         <input type="text" name="description" class="form-control"
-                                                            id="description" value="{{ $articles->description }}">
+                                                            id="description" required value="{{ $articles->description }}">
                                                     </div>
 
                                                 </div>
@@ -163,8 +168,8 @@
                                         </div>
                                     </div> --}}
 
-                                    <textarea name="" id="" cols="30" rows="15" class="form-control mt-3"
-                                        style="font-size: 20px">{{ $articles->article }}</textarea>
+                                    <textarea name="article" id="" cols="30" rows="15" class="form-control mt-3"
+                                        style="font-size: 20px" required >{{ $articles->article }}</textarea>
                                 </div>
 
                                 </form>
@@ -183,7 +188,8 @@
                                 <div class="tab-pane fade" id="custom-content-above-settings" role="tabpanel"
                                     aria-labelledby="custom-content-above-settings-tab">
 
-                             <img src="{{ asset('/images/articles/' . $articles->photo) }}" alt="" class="img-fluid">
+                                    <img src="{{ asset('/images/articles/' . $articles->photo) }}" alt=""
+                                        class="img-fluid">
 
 
                                 </div>

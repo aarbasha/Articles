@@ -59,7 +59,7 @@ class CoursesController extends Controller
             return redirect()->route('Platforms.create');
             }else{
             $Courses->save();
-            session()->flash('add','تم اضافة الكورس بنجاح');
+            session()->flash('Add','تم اضافة الكورس بنجاح');
             return redirect()->route('Courses.index');
             }
 
@@ -76,7 +76,7 @@ class CoursesController extends Controller
             return redirect()->route('Platforms.create');
             }else{
             $Courses->save();
-            session()->flash('add','تم اضافة الكورس بنجاح');
+            session()->flash('Add','تم اضافة الكورس بنجاح');
             return redirect()->route('Courses.index');
             }
         }
@@ -114,7 +114,7 @@ class CoursesController extends Controller
             $Courses->save();
             session()->flash('edit','تم تعديل الكورس بنجاح');
             return redirect()->route('Courses.index');
-     
+
             }
         }elseif($request->photo){
                 $Courses = Course::where('id',$id)->first();

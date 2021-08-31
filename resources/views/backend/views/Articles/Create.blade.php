@@ -44,14 +44,16 @@
                 <div class="container-fluid">
                     <div class="row">
                         <div class="col-lg-12 d-flex justify-content-end">
-                            <div class="">
+                            <div class="___class_+?14___">
                                 <a href="{{ route('Articles.index') }}" class="btn btn-primary flote-right mb-2">
                                     Back
                                 </a>
                             </div>
                         </div>
                         <div class="col-lg-12 d-flex justify-content-center mr-5 mt-3" style="position: absolute;">
-                            @include('backend.views.Articles.alert')
+                            <div>
+                                @include('backend.layouts.alert')
+                            </div>
                         </div>
 
                         <div class="col-lg-12">
@@ -104,15 +106,16 @@
                                                     <div class="form-group col-lg-12">
                                                         <label for="title">Title</label>
                                                         <input type="text" name="title" class="form-control" id="title"
-                                                            value="" required>
+                                                            value="{{ old('title') }}" required>
                                                     </div>
                                                     <div class="form-group col-lg-6">
                                                         <label>Section</label>
                                                         <select name="sections_id" class="form-control"
-                                                            style="width: 100%;" required>
+                                                            style="width: 100%;" required >
                                                             {{-- <option value=""  selected>Chois Section ..</option> --}}
                                                             @foreach ($Sections as $Section)
-                                                                <option value="{{ $Section->id }}"> {{ $Section->title }} </option>
+                                                                <option value="{{ $Section->id }}">
+                                                                    {{ $Section->title }} </option>
                                                             @endforeach
                                                         </select>
                                                     </div>
@@ -120,7 +123,7 @@
                                                     <div class="form-group col-lg-6">
                                                         <label for="photo">Uploud Photo</label>
                                                         <input type="file" name="photo" class="form-control" id="photo"
-                                                            value="" required>
+                                                            value="{{ old('photo') }}" required>
                                                     </div>
 
                                                 </div>
@@ -129,7 +132,7 @@
                                                     <div class="form-group col-lg-12">
                                                         <label for="description">Description</label>
                                                         <input type="text" name="description" class="form-control"
-                                                            id="description" value="" required>
+                                                            id="description" value="{{ old('description') }}" required>
                                                     </div>
 
                                                 </div>
@@ -148,7 +151,7 @@
                                     aria-labelledby="custom-content-above-profile-tab">
 
 
-                                        {{-- <div class="card-header">
+                                    {{-- <div class="card-header">
                                             <h3 class="card-title">
                                                 Summernote
                                             </h3>
@@ -159,10 +162,10 @@
                                                 rows="10" ></textarea>
                                         </div> --}}
 
-                                        <div class="form-group mt-2">
-                                            <textarea name="article" id="article" cols="30" rows="15" class="form-control"
-                                                style="font-size: 20px" placeholder="Enter Your New Article"></textarea>
-                                        </div>
+                                    <div class="form-group mt-2">
+                                        <textarea name="article" id="article" cols="30" rows="15" class="form-control"
+                                            style="font-size: 20px" required placeholder="Enter Your New Article">{{ old('article') }}</textarea>
+                                    </div>
 
 
 
@@ -174,18 +177,12 @@
                                 <div class="tab-pane fade" id="custom-content-above-messages" role="tabpanel"
                                     aria-labelledby="custom-content-above-messages-tab">
                                     <div class="col-lg-12 mt-3">
-                                        <form action="{{ route('storeMulteImage') }}" method="POST" class="dropzone" id="my-dropzone" enctype="multipart/form-data">
+                                        <form action="{{ route('storeMulteImage') }}" method="POST"
+                                            class="dropzone" id="my-dropzone" enctype="multipart/form-data">
                                             @csrf
                                         </form>
                                     </div>
                                 </div>
-
-                                {{-- <div class="tab-pane fade" id="custom-content-above-settings" role="tabpanel"
-                                aria-labelledby="custom-content-above-settings-tab">
-
-                            </div> --}}
-
-
                             </div>
                         </div>
 

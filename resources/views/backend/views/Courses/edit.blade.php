@@ -31,6 +31,11 @@
                                 Back
                             </a>
                         </div>
+                        <div class="col-lg-12 d-flex justify-content-center mr-5 mt-3" style="position: absolute;">
+                            <div>
+                                @include('backend.layouts.alert')
+                            </div>
+                        </div>
                     </div>
                     <div class="row">
                         <div class="col-lg-12 col-md-12 col">

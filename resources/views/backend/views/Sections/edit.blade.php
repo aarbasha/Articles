@@ -16,6 +16,11 @@
                             <li class="breadcrumb-item active">Edit Section</li>
                         </ol>
                     </div>
+                    <div class="col-lg-12 d-flex justify-content-center mr-5 mt-3" style="position: absolute;">
+                        <div>
+                            @include('backend.layouts.alert')
+                        </div>
+                    </div>
                 </div>
             </div><!-- /.container-fluid -->
         </section>
