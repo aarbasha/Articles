@@ -75,4 +75,11 @@ class showController extends Controller
      $zzz = Platform::all();
      return view('frontend.views.Courses.course_info',compact('Courses','Platforms','zzz','randoms'));
  }
+
+ //################################################################################################
+
+ public function setting(){
+     //عرض صفحة تعديل الاعدادات الخارجية
+     return view('frontend.views.setting.setting_home');
+ }
 }

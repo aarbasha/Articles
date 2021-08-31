@@ -5,7 +5,6 @@ namespace App\Models\backend;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use App\Models\backend\Section;
-use App\Models\backend\photosArticle;
 
 class Article extends Model
 {
@@ -20,8 +19,6 @@ class Article extends Model
         return $this->belongsTo(Section::class , 'sections_id');
     }
 
-    public function photo(){
-        return $this->hasMany(photosArticle::class);
-    }
+
 
 }

@@ -5,7 +5,6 @@ namespace App\Models\backend;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use App\Models\backend\Platform;
-use App\Models\backend\Photo;
 
 class Course extends Model
 {

@@ -167,9 +167,6 @@
                                             style="font-size: 20px" required placeholder="Enter Your New Article">{{ old('article') }}</textarea>
                                     </div>
 
-
-
-
                                 </div>
 
                                 </form>
