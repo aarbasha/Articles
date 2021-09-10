@@ -4,21 +4,22 @@ namespace App\Http\Controllers\backend;
 
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
-use App\Models\backend\photosArticle;
+use App\Models\backend\Photo;
 use App\Models\backend\Article;
-use DB;
 
-class photosArticlesController extends Controller
+class photosController extends Controller
 {
-
-
-    public function storeMulteImage(Request $request){
+    public function uplode(Request $request){
         if ($request->hasfile('file')) {
             $file = $request->file('file');
             $fileName = time() . '.' . $file->getClientOriginalExtension();
             $path = $file->move('images/articles/' ,$fileName );
             if ($path) {
-              
+
+                Article::create([
+                    'path' => $fileName,
+                    // 'articles_id' => Article::where('id' ,$id)->first()
+                ]);
                //insert file to Database
                 return response()->json(['uplode_status' =>'success'],200);
             }else{
@@ -28,15 +29,15 @@ class photosArticlesController extends Controller
         }
     }
 
-    //use Dropzine js uplode multe img ####### Update ######
-    public function uplode(Request $request , $id){
+    // use Dropzine js uplode multe img ####### Update ######
+    public function uplodeEdit(Request $request , $id){
         if ($request->hasfile('file')) {
             $file = $request->file('file');
             $fileName = time() . '.' . $file->getClientOriginalExtension();
             // $articles_id = Article::where('id' , $id)->first()->id;
             $path = $file->move('images/articles/' ,$fileName );
             if ($path) {
-                // $fileName = photosArticle::Create([
+                // $fileName = Photo()->article()->Create([
                 //         'path' => $fileName,
                 //         'articles_id' => $articles_id
                 // ]);
@@ -48,5 +49,4 @@ class photosArticlesController extends Controller
             }
         }
     }
-
 }

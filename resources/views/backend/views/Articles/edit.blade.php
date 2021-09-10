@@ -177,7 +177,7 @@
                                 <div class="tab-pane fade" id="custom-content-above-messages" role="tabpanel"
                                     aria-labelledby="custom-content-above-messages-tab">
                                     <div class="col-lg-12 mt-3">
-                                        <form action="{{ route('Articles.uplode', $articles->id) }}" method="POST"
+                                        <form action="{{ route('uplode.photo', $articles->id) }}" method="POST"
                                             class="dropzone" id="my-dropzone">
                                             @csrf
                                         </form>

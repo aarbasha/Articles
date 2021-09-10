@@ -99,7 +99,7 @@
                 {{-- Articals --}}
 
                 <li class="nav-item">
-                    <a href="" class="nav-link">
+                    <a href="{{ route('manger.index') }}" class="nav-link">
                         <i class="fas fa-user-cog mr-2"></i>
                         <p>
                             معلومات  المدير
@@ -107,21 +107,14 @@
                     </a>
                 </li>
                 <li class="nav-item">
-                    <a href="{{ route('mail.box') }}" class="nav-link">
+                    <a href="" class="nav-link">
                         <i class="fas fa-envelope mr-2"></i>
                         <p>
                             الصندوق الوارد
                         </p>
                     </a>
                 </li>
-                <li class="nav-item">
-                    <a href="{{ route('setting') }}" class="nav-link">
-                        <i class="fas fa-globe-africa mr-2"></i>
-                        <p>
-                            اعدادات الموقع 
-                        </p>
-                    </a>
-                </li>
+
             </ul>
         </nav>
         <!-- /.sidebar-menu -->

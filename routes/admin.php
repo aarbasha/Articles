@@ -7,8 +7,8 @@ use App\Http\Controllers\backend\platformsController;
 use App\Http\Controllers\backend\ArticlesController;
 use App\Http\Controllers\backend\CoursesController;
 use App\Http\Controllers\backend\mailController;
-use App\Http\Controllers\backend\userController;
-use App\Http\Controllers\backend\photosArticlesController;
+use App\Http\Controllers\backend\UserController;
+use App\Http\Controllers\backend\photosController;
 
 // المصادقة
 Auth::routes(['register'=>false]);
@@ -92,10 +92,27 @@ Route::group(['prefix'=>'Mail','middleware'=>'auth'],function () {
 
 });
 
-Route::group(['prefix'=>'photos','middleware'=>'auth'],function(){
-     // رفع صور متعددة
-     Route::post('storeMulteImage/' , [photosArticlesController::class,'storeMulteImage'])->name('storeMulteImage');
-    //تحديث صور متعددة
-     Route::post('uplode/{id}' , [photosArticlesController::class,'uplode'])->name('Articles.uplode');
+Route::group(['prefix'=>'manger','middleware'=>'auth'],function () {
+    //عرض صفحة المدير
+    Route::get('/', [UserController::class,'index'])->name('manger.index');
+    //عرض صفحة اضافة المدير
+    Route::get('create' , [UserController::class,'create'])->name('manger.create');
+    //اضافة مدير
+    Route::post('store' , [UserController::class,'store'])->name('manger.store');
+    // عرض صفحة تعديل بيانات المدير
+    Route::get('edit/{id}' , [UserController::class,'edit'])->name('manger.edit');
+    // تعديل بيانات المدير
+    Route::post('update/{id}' , [UserController::class,'update'])->name('manger.update');
+    //  حذف مدير
+    Route::get('delete/{id}' , [UserController::class,'destroy'])->name('manger.delete');
+    //عرض بيانات مدير
+    Route::get('show/{id}' , [UserController::class,'show'])->name('manger.show');
 
+});
+
+Route::group(['prefix'=>'photos','middleware'=>'auth'],function(){
+
+    Route::post('/', [photosController::class,'uplode'])->name('uplode.photo');
+
+    Route::post('/{id}', [photosController::class,'uplodeEdit'])->name('uplodeEdit.photo');
 });
