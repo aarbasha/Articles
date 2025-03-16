@@ -18,9 +18,10 @@
 
             <nav id="navbar" class="navbar">
                 <ul>
-                    <li><a class="nav-link scrollto " href="/">الرئيسية</a></li>
-                    <li><a class="nav-link scrollto " href="{{ route('showArticles') }}">مقالات</a></li>
-                    <li><a class="nav-link scrollto " href="{{ route('showCourses') }}">الدورات التعليمة</a></li>
+                    <li><a class="nav-link scrollto " href="/">home</a></li>
+                    <li><a class="nav-link scrollto " href="{{ route('showArticles') }}">Articles</a></li>
+                    <li><a class="nav-link scrollto " href="{{ route('showCourses') }}">
+                            Courses</a></li>
 
                     @guest
                         {{-- <li class="nav-item">

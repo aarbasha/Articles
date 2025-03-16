@@ -1,14 +1,15 @@
 <?php
 
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\HomeController;
-use App\Http\Controllers\backend\SectionsController;
-use App\Http\Controllers\backend\platformsController;
-use App\Http\Controllers\backend\ArticlesController;
-use App\Http\Controllers\backend\CoursesController;
 use App\Http\Controllers\backend\mailController;
 use App\Http\Controllers\backend\UserController;
 use App\Http\Controllers\backend\photosController;
+use App\Http\Controllers\backend\CoursesController;
+use App\Http\Controllers\backend\ArticlesController;
+use App\Http\Controllers\backend\SectionsController;
+use App\Http\Controllers\backend\platformsController;
 
 // المصادقة
 Auth::routes(['register'=>false]);

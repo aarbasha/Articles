@@ -8,13 +8,13 @@
 
         <nav id="navbar" class="navbar">
             <ul>
-                <li><a class="nav-link scrollto active" href="/">الرئيسية</a></li>
-                <li><a class="nav-link scrollto" href="#about">من أنا</a></li>
-                <li><a class="nav-link scrollto" href="#services">الخدمات</a></li>
-                <li><a class="nav-link scrollto" href="#portfolio">اعمالي</a></li>
-                <li><a class="nav-link scrollto" href="#team">فريقي</a></li>
-                <li><a class="nav-link scrollto" href="{{ route('showArticles') }}">المقالات</a></li>
-                <li><a class="nav-link scrollto" href="{{ route('showCourses') }}">الدورات التعليمة</a></li>
+                <li><a class="nav-link scrollto active" href="/">Home</a></li>
+                <li><a class="nav-link scrollto" href="#about">About</a></li>
+                <li><a class="nav-link scrollto" href="#services">Services</a></li>
+                <li><a class="nav-link scrollto" href="#portfolio">Portfolio</a></li>
+                <li><a class="nav-link scrollto" href="#team">Team</a></li>
+                <li><a class="nav-link scrollto" href="{{ route('showArticles') }}">Artecals</a></li>
+                <li><a class="nav-link scrollto" href="{{ route('showCourses') }}">Courses </a></li>
 
 
                 {{-- <li class="dropdown"><a href="#"><span>مقالات</span> <i class="bi bi-chevron-down"></i></a>
@@ -32,7 +32,7 @@
                         <li><a href="#">يوداسيتي</a></li>
                     </ul>
                 </li> --}}
-                <li><a class="nav-link scrollto" href="#contact">تواصل معي</a></li>
+                <li><a class="nav-link scrollto" href="#contact">Contact</a></li>
                 {{-- <li><a class="getstarted scrollto" href="/ahmad">ahmad</a></li> --}}
                 @guest
                     {{-- <li class="nav-item">
@@ -57,7 +57,8 @@
                             </a>
 
 
-                            <a class="dropdown-item text-dark" href="{{ route('logout') }}" onclick="event.preventDefault();
+                            <a class="dropdown-item text-dark" href="{{ route('logout') }}"
+                                onclick="event.preventDefault();
                                                  document.getElementById('logout-form').submit();">
                                 {{ __('Logout') }}
                             </a>
